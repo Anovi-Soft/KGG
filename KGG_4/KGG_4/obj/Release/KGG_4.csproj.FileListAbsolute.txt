@@ -1,0 +1,12 @@
+C:\Users\Андрей\Documents\Visual Studio 2013\Projects\KGG_4\KGG_4\bin\Release\KGG_4.exe.config
+C:\Users\Андрей\Documents\Visual Studio 2013\Projects\KGG_4\KGG_4\bin\Release\KGG_4.exe
+C:\Users\Андрей\Documents\Visual Studio 2013\Projects\KGG_4\KGG_4\bin\Release\KGG_4.pdb
+C:\Users\Андрей\Documents\Visual Studio 2013\Projects\KGG_4\KGG_4\obj\Release\MainWindow.baml
+C:\Users\Андрей\Documents\Visual Studio 2013\Projects\KGG_4\KGG_4\obj\Release\MainWindow.g.cs
+C:\Users\Андрей\Documents\Visual Studio 2013\Projects\KGG_4\KGG_4\obj\Release\App.g.cs
+C:\Users\Андрей\Documents\Visual Studio 2013\Projects\KGG_4\KGG_4\obj\Release\KGG_4_MarkupCompile.cache
+C:\Users\Андрей\Documents\Visual Studio 2013\Projects\KGG_4\KGG_4\obj\Release\KGG_4.g.resources
+C:\Users\Андрей\Documents\Visual Studio 2013\Projects\KGG_4\KGG_4\obj\Release\KGG_4.Properties.Resources.resources
+C:\Users\Андрей\Documents\Visual Studio 2013\Projects\KGG_4\KGG_4\obj\Release\KGG_4.csproj.GenerateResource.Cache
+C:\Users\Андрей\Documents\Visual Studio 2013\Projects\KGG_4\KGG_4\obj\Release\KGG_4.exe
+C:\Users\Андрей\Documents\Visual Studio 2013\Projects\KGG_4\KGG_4\obj\Release\KGG_4.pdb
