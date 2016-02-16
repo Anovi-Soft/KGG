@@ -24,3 +24,6 @@ C:\Users\-\Desktop\KGG_2\KGG_2\obj\Debug\KGG_2_MarkupCompile.cache
 C:\Users\-\Desktop\KGG_2\KGG_2\obj\Debug\KGG_2.g.resources
 C:\Users\-\Desktop\KGG_2\KGG_2\obj\Debug\KGG_2.Properties.Resources.resources
 C:\Users\-\Desktop\KGG_2\KGG_2\obj\Debug\KGG_2.csproj.GenerateResource.Cache
+C:\Users\Andrew\Documents\GitHub\KGG\KGG_2\KGG_2\bin\Debug\KGG_2.exe.config
+C:\Users\Andrew\Documents\GitHub\KGG\KGG_2\KGG_2\obj\Debug\KGG_2.exe
+C:\Users\Andrew\Documents\GitHub\KGG\KGG_2\KGG_2\obj\Debug\KGG_2.pdb

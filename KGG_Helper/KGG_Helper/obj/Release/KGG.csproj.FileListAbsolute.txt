@@ -1,0 +1,9 @@
+C:\Users\Andrew\Documents\GitHub\KGG\KGG_Helper\KGG_Helper\bin\Release\KGG_Helper.dll
+C:\Users\Andrew\Documents\GitHub\KGG\KGG_Helper\KGG_Helper\bin\Release\KGG_Helper.pdb
+C:\Users\Andrew\Documents\GitHub\KGG\KGG_Helper\KGG_Helper\obj\Release\KggCanvas.g.cs
+C:\Users\Andrew\Documents\GitHub\KGG\KGG_Helper\KGG_Helper\obj\Release\KGG_Helper_MarkupCompile.cache
+C:\Users\Andrew\Documents\GitHub\KGG\KGG_Helper\KGG_Helper\obj\Release\KGG_Helper_MarkupCompile.lref
+C:\Users\Andrew\Documents\GitHub\KGG\KGG_Helper\KGG_Helper\obj\Release\KggCanvas.baml
+C:\Users\Andrew\Documents\GitHub\KGG\KGG_Helper\KGG_Helper\obj\Release\KGG_Helper.g.resources
+C:\Users\Andrew\Documents\GitHub\KGG\KGG_Helper\KGG_Helper\obj\Release\KGG_Helper.dll
+C:\Users\Andrew\Documents\GitHub\KGG\KGG_Helper\KGG_Helper\obj\Release\KGG_Helper.pdb

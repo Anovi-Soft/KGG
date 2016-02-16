@@ -1,0 +1,36 @@
+﻿<Window x:Class="KGG_Task_5.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KGG_Task_5"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="792" Width="929">
+    <Grid>
+        <Rectangle HorizontalAlignment="Left" Height="600" Margin="10,10,0,0" VerticalAlignment="Top" Width="901" Fill="#FFF4F4F5" Stroke="Black"/>
+        <Canvas x:Name="canvas" HorizontalAlignment="Left" Height="600" Margin="10,10,0,0" VerticalAlignment="Top" Width="901"/>
+
+        <TextBox x:Name="triLevel" HorizontalAlignment="Left" Height="34" Margin="727,627,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="90" FontSize="24" TextChanged="TextBoxUInt"/>
+        <Label Content="TriangLevel:" HorizontalAlignment="Left" Margin="575,620,0,0" VerticalAlignment="Top" FontSize="26.667"/>
+
+        <Button x:Name="button" Content="Draw" HorizontalAlignment="Left" Margin="836,620,0,0" VerticalAlignment="Top" Width="75" Height="131" FontSize="26.667" Click="button_Click"/>
+
+        <Label Content="Cube:" HorizontalAlignment="Left" Margin="10,620,0,0" VerticalAlignment="Top" FontSize="26.667"/>
+        <TextBox x:Name="cubeFrom" HorizontalAlignment="Left" Height="34" Margin="226,627,0,0" TextWrapping="Wrap" Text="-10;-10;-10" VerticalAlignment="Top" Width="90" FontSize="16" TextChanged="TextBoxVector3"/>
+        <Label Content="From:" HorizontalAlignment="Left" Margin="144,620,0,0" VerticalAlignment="Top" FontSize="26.667"/>
+        <TextBox x:Name="cubeTo" HorizontalAlignment="Left" Height="34" Margin="381,627,0,0" TextWrapping="Wrap" Text="10;10;10" VerticalAlignment="Top" Width="90" FontSize="16" TextChanged="TextBoxVector3"/>
+        <Label Content="To:" HorizontalAlignment="Left" Margin="338,620,0,0" VerticalAlignment="Top" FontSize="26.667"/>
+
+        <Label  Content="Pyramid:" HorizontalAlignment="Left" Margin="10,676,0,0" VerticalAlignment="Top" FontSize="26.667"/>
+        <TextBox x:Name="pyrA" HorizontalAlignment="Left" Height="34" Margin="182,683,0,0" TextWrapping="Wrap" Text="0;0;0" VerticalAlignment="Top" Width="90" FontSize="16"  TextChanged="TextBoxVector3"/>
+        <Label Content="A:" HorizontalAlignment="Left" Margin="144,676,0,0" VerticalAlignment="Top" FontSize="26.667"/>
+        <TextBox x:Name="pyrB" HorizontalAlignment="Left" Height="34" Margin="315,683,0,0" TextWrapping="Wrap" Text="0;0;0" VerticalAlignment="Top" Width="90" FontSize="16"  TextChanged="TextBoxVector3"/>
+        <Label Content="B:" HorizontalAlignment="Left" Margin="277,676,0,0" VerticalAlignment="Top" FontSize="26.667"/>
+        <TextBox x:Name="pyrC" HorizontalAlignment="Left" Height="34" Margin="448,683,0,0" TextWrapping="Wrap" Text="0;0;0" VerticalAlignment="Top" Width="90" FontSize="16"  TextChanged="TextBoxVector3"/>
+        <Label Content="C:" HorizontalAlignment="Left" Margin="410,676,0,0" VerticalAlignment="Top" FontSize="26.667"/>
+        <TextBox x:Name="pyrD" HorizontalAlignment="Left" Height="34" Margin="585,683,0,0" TextWrapping="Wrap" Text="0;0;0" VerticalAlignment="Top" Width="90" FontSize="16"  TextChanged="TextBoxVector3"/>
+        <Label Content="D:" HorizontalAlignment="Left" Margin="547,676,0,0" VerticalAlignment="Top" FontSize="26.667"/>
+        <TextBox x:Name="pyrUp" HorizontalAlignment="Left" Height="34" Margin="729,683,0,0" TextWrapping="Wrap" Text="0;0;0" VerticalAlignment="Top" Width="90" FontSize="16"  TextChanged="TextBoxVector3"/>
+        <Label Content="UP:" HorizontalAlignment="Left" Margin="680,676,0,0" VerticalAlignment="Top" FontSize="26.667"/>
+    </Grid>
+</Window>

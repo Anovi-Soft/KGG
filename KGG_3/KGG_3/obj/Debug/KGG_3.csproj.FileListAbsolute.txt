@@ -37,3 +37,6 @@ C:\Users\-\Desktop\KGG_3\KGG_3\obj\Debug\KGG_3_MarkupCompile.cache
 C:\Users\-\Desktop\KGG_3\KGG_3\obj\Debug\KGG_3.g.resources
 C:\Users\-\Desktop\KGG_3\KGG_3\obj\Debug\KGG_3.Properties.Resources.resources
 C:\Users\-\Desktop\KGG_3\KGG_3\obj\Debug\KGG_3.csproj.GenerateResource.Cache
+C:\Users\Andrew\Documents\GitHub\KGG\KGG_3\KGG_3\bin\Debug\KGG_3.exe.config
+C:\Users\Andrew\Documents\GitHub\KGG\KGG_3\KGG_3\obj\Debug\KGG_3.exe
+C:\Users\Andrew\Documents\GitHub\KGG\KGG_3\KGG_3\obj\Debug\KGG_3.pdb
