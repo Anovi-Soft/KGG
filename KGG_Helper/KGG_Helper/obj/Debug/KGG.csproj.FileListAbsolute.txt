@@ -7,3 +7,4 @@ C:\Users\Andrew\Documents\GitHub\KGG\KGG_Helper\KGG_Helper\obj\Debug\KggCanvas.b
 C:\Users\Andrew\Documents\GitHub\KGG\KGG_Helper\KGG_Helper\obj\Debug\KGG_Helper.g.resources
 C:\Users\Andrew\Documents\GitHub\KGG\KGG_Helper\KGG_Helper\obj\Debug\KGG_Helper.dll
 C:\Users\Andrew\Documents\GitHub\KGG\KGG_Helper\KGG_Helper\obj\Debug\KGG_Helper.pdb
+C:\Users\Andrew\Documents\GitHub\KGG\KGG_Helper\KGG_Helper\obj\Debug\KGG.csprojResolveAssemblyReference.cache

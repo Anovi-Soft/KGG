@@ -52,6 +52,7 @@ namespace KGG
             try
             {
                 bitmap.WritePixels(new Int32Rect(x, y, PixelSize, PixelSize), color, 4, 0);
+                Update();
             }
             catch (Exception)
             {
@@ -60,11 +61,11 @@ namespace KGG
         }
         public void DrawPoint(int x, int y, Color color)
         {
-            DrawPoint(x, y, color.Get);
+            DrawPoint(x, y, color);
         }
         public void DrawPoint(int x, int y)
         {
-            DrawPoint(x, y, Color.Black);
+            DrawPoint(x, y, Color.Green);
         }
 
         //public void DrawTriangle(Triangle triangle)
@@ -115,6 +116,10 @@ namespace KGG
             image.Source = bitmap;
         }
 
+        public void SaveTo(string path)
+        {
+            
+        }
         public class Color
         {
             public Color(byte b, byte g, byte r, byte a = 255)
@@ -128,13 +133,19 @@ namespace KGG
             public byte G;
             public byte B;
             public byte A;
-            public byte[] Get => new[] {R, G, B, A};
+            public static implicit operator Array(Color color) => new[]
+            {
+                color.R,
+                color.G,
+                color.B,
+                color.A
+            };
 
             public static Color Black = new Color( 0, 0, 0);
             public static Color White = new Color( 255, 255, 255);
-            public static Color Red = new Color( 255, 0, 0);
+            public static Color Blue = new Color( 255, 0, 0);
             public static Color Green = new Color( 0, 255, 0);
-            public static Color Blue = new Color(0, 0, 255);
+            public static Color Red = new Color(0, 0, 255);
         }
 
         private void UserControl_SizeChanged(object sender, SizeChangedEventArgs e)

@@ -23,14 +23,17 @@ namespace KGG_Task_1
         public MainWindow()
         {
             InitializeComponent();
+            kggCanvas.PixelSize = 10;
+            kggCanvas.Arrows = true;
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
             for (int i = 0; i < 500; i += 20)
             {
-                kggCanvas.DrawPoint(i+1,300);
+                kggCanvas.DrawPoint(i + 1, 300);
                 kggCanvas.PixelSize *= 2;
+                kggCanvas.Update();
             }
         }
     }

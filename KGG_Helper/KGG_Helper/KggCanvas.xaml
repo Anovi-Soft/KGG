@@ -7,8 +7,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="900">
     <Grid>
-        <Rectangle Fill="#FFEAD5" HorizontalAlignment="Left" Height="600" Stroke="Black" VerticalAlignment="Top" Width="900"/>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="600" VerticalAlignment="Top" Width="900" Source="Images/mask.png"/>
+        <!--<Rectangle Fill="#FFEAD5" HorizontalAlignment="Left" Height="600" Stroke="Black" VerticalAlignment="Top" Width="900"/>-->
+        <Image x:Name="image" HorizontalAlignment="Left" Height="600" VerticalAlignment="Top" Width="900" Source="Resources/mask.png"/>
         <Image x:Name="maskArrow" HorizontalAlignment="Left" Height="600" VerticalAlignment="Top" Width="900"/>
 
     </Grid>
