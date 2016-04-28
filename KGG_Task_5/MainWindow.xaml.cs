@@ -76,6 +76,7 @@ namespace KGG_Task_5
 
             allTriangles.Sort((a,b) => a.ZZ.CompareTo(b.ZZ));
             allTriangles.ForEach(kggCanvas.DrawTriangle);
+            kggCanvas.Update();
             //var triangle = new Triangle(new Vector3(120, 200, 20), new Vector3(160, 250, 20), new Vector3(200, 200, 20))
             //{
             //    Color = KggCanvas.Color.Blue

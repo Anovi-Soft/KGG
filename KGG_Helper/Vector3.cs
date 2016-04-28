@@ -44,9 +44,11 @@ namespace KGG
 
         public static Vector3 Parse(string text)
         {
-            var splt = text.Split(';').Select((a)=> a == "" ? 0 : double.Parse(a));
-            if (splt.Count()==3)
-                return new Vector3();
+            var splt = text.Split(';')
+                .Select(a => a == "" ? 0 : double.Parse(a))
+                .ToList();
+            if (splt.Count == 3)
+                return new Vector3(splt[0], splt[1], splt[2]);
             throw new FormatException();
         }
     }

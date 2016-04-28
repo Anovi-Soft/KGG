@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace KGG
-{
+{ 
     public class Polygon
     {
         public List<Vector2> Points {get; private set; }

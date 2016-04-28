@@ -45,61 +45,43 @@ namespace KGG
             bitmap.WritePixels(new Int32Rect(x, y, 1, 1), color, 4, 0);
         }
 
-        public void DrawPoint(Vector2 point, Color color)
-        {
+        public void DrawPoint(Vector2 point, Color color) =>
             DrawPoint((int)point.X, (int)point.Y, color);
-        }
-        public void DrawPoint(int x, int y, Color color)
-        {
+
+        public void DrawPoint(int x, int y, Color color) =>
             DrawPoint(x, y, (byte[])color);
-        }
-        public void DrawPoint(int x, int y)
-        {
+
+        public void DrawPoint(int x, int y) =>
             DrawPoint(x, y, Color.Black);
-        }
+        
+        public void DrawLine(int x1, int y1, int x2, int y2, int color) => 
+            bitmap.DrawLine(x1, y1, x2, y2, color);
+
+        public void DrawLine(Vector2 from, Vector2 to, Color color) =>
+            DrawLine((int) @from.X, (int) @from.Y, (int) to.X, (int) to.Y, color);
+
+        public void DrawLine(Segment segment, Color color) =>
+            DrawLine(segment.From, segment.To, color);
 
         public void DrawTriangle(Triangle triangle)
         {
-            var points = (new[] { triangle.A, triangle.B, triangle.C }).ToList();
-            points.Sort((p1, p2) => p1.YY.CompareTo(p2.YY));
-            var A = points[0];
-            var B = points[1];
-            var C = points[2];
-
-            for (var sy = A.YY; sy <= C.YY; sy += 1)
-            {
-                var x1 = A.XX + (sy - A.YY) * (C.XX - A.XX) / (C.YY - A.YY);
-                double x2;
-                if (sy < B.YY)
-                {
-                    x2 = A.XX + (sy - A.YY) * (B.XX - A.XX) / (B.YY - A.YY);
-                }
-                else
-                {
-                    if (C.YY == B.YY)
-                        x2 = B.XX;
-                    else
-                        x2 = B.XX + (sy - B.YY) * (C.XX - B.XX) / (C.YY - B.YY);
-                }
-                if (x1 > x2)
-                    Swap(ref x1, ref x2);
-                drawHorizontalLine(sy, x1, x2, triangle.Color);
-            }
+            var halfWidth = MapWidth / 2;
+            var halfHeight = MapHeight / 2;
+            var x1 = (int)triangle.A.XX;
+            var y1 = (int)triangle.A.YY;
+            var x2 = (int)triangle.B.XX;
+            var y2 = (int)triangle.B.YY;
+            var x3 = (int)triangle.C.XX;
+            var y3 = (int)triangle.C.YY;
+            bitmap.FillTriangle(
+                x1 + halfWidth,
+                y1 + halfHeight,
+                x2 + halfWidth,
+                y2 + halfHeight,
+                x3 + halfWidth,
+                y3 + halfHeight,
+                triangle.Color);
         }
-
-        private void drawHorizontalLine(double y, double x1, double x2, Color color)
-        {
-            for (var i = (int)x1; i <= x2; i++)
-                DrawPoint(i, (int)y, color);
-        }
-
-        private void Swap<T>(ref T x1, ref T x2)
-        {
-            var x = x1;
-            x1 = x2;
-            x2 = x;
-        }
-
 
         public void Update()
         {
@@ -123,13 +105,19 @@ namespace KGG
             public byte G;
             public byte R;
             public byte A;
-            public static implicit operator byte[](Color color) => new[]
+            public static implicit operator byte[] (Color color) => new[]
             {
                 color.B,
                 color.G,
                 color.R,
                 color.A
             };
+
+            public static implicit operator int(Color color) =>
+                color.A << 24 |
+                color.R << 16 |
+                color.G << 8 |
+                color.B << 0;
 
             public static Color Black = new Color( 0, 0, 0);
             public static Color White = new Color( 255, 255, 255);

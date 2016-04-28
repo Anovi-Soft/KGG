@@ -33,7 +33,7 @@ namespace KGG
         /// <returns></returns>
         public List<Triangle> Triangulation(uint n)
         {
-            var tri = new List<Triangle>(12);
+            var tri = new List<Triangle>(6);
             foreach (var a in rectangles)
                 tri.AddRange(a.Triangulation(n));
             return tri;

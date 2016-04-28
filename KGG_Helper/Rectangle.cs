@@ -30,8 +30,7 @@ namespace KGG
         /// <returns></returns>
         public List<Triangle> Triangulation(uint n)
         {
-            var triangles = new List<Triangle>(2);
-            triangles.AddRange(new Triangle(A, B, C).Triangulation(n));
+            var triangles = new Triangle(A, B, C).Triangulation(n);
             triangles.AddRange(new Triangle(A, B, C).Triangulation(n));
             foreach (var z in triangles)
             {
