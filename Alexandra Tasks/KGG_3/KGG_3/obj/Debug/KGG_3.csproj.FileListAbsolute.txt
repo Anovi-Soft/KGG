@@ -1,0 +1,42 @@
+C:\Users\Андрей\Documents\Visual Studio 2013\Projects\KGG_3\KGG_3\bin\Debug\KGG_3.exe.config
+C:\Users\Андрей\Documents\Visual Studio 2013\Projects\KGG_3\KGG_3\obj\Debug\KGG_3.csprojResolveAssemblyReference.cache
+C:\Users\Андрей\Documents\Visual Studio 2013\Projects\KGG_3\KGG_3\obj\Debug\MainWindow.baml
+C:\Users\Андрей\Documents\Visual Studio 2013\Projects\KGG_3\KGG_3\obj\Debug\MainWindow.g.cs
+C:\Users\Андрей\Documents\Visual Studio 2013\Projects\KGG_3\KGG_3\obj\Debug\App.g.cs
+C:\Users\Андрей\Documents\Visual Studio 2013\Projects\KGG_3\KGG_3\obj\Debug\KGG_3_MarkupCompile.cache
+C:\Users\Андрей\Documents\Visual Studio 2013\Projects\KGG_3\KGG_3\obj\Debug\KGG_3.g.resources
+C:\Users\Андрей\Documents\Visual Studio 2013\Projects\KGG_3\KGG_3\obj\Debug\KGG_3.Properties.Resources.resources
+C:\Users\Андрей\Documents\Visual Studio 2013\Projects\KGG_3\KGG_3\obj\Debug\KGG_3.csproj.GenerateResource.Cache
+C:\Users\Андрей\Documents\Visual Studio 2013\Projects\KGG_3\KGG_3\bin\Debug\KGG_3.exe
+C:\Users\Андрей\Documents\Visual Studio 2013\Projects\KGG_3\KGG_3\bin\Debug\KGG_3.pdb
+C:\Users\Андрей\Documents\Visual Studio 2013\Projects\KGG_3\KGG_3\obj\Debug\KGG_3.exe
+C:\Users\Андрей\Documents\Visual Studio 2013\Projects\KGG_3\KGG_3\obj\Debug\KGG_3.pdb
+C:\Users\-\Documents\Visual Studio 2012\Projects\KGG_3\KGG_3\bin\Debug\KGG_3.exe.config
+C:\Users\-\Documents\Visual Studio 2012\Projects\KGG_3\KGG_3\obj\Debug\KGG_3.exe
+C:\Users\-\Documents\Visual Studio 2012\Projects\KGG_3\KGG_3\obj\Debug\KGG_3.pdb
+C:\Users\-\Documents\Visual Studio 2012\Projects\KGG_3\KGG_3\bin\Debug\KGG_3.exe
+C:\Users\-\Documents\Visual Studio 2012\Projects\KGG_3\KGG_3\bin\Debug\KGG_3.pdb
+C:\Users\-\Documents\Visual Studio 2012\Projects\KGG_3\KGG_3\obj\Debug\KGG_3.csprojResolveAssemblyReference.cache
+C:\Users\-\Documents\Visual Studio 2012\Projects\KGG_3\KGG_3\obj\Debug\MainWindow.baml
+C:\Users\-\Documents\Visual Studio 2012\Projects\KGG_3\KGG_3\obj\Debug\MainWindow.g.cs
+C:\Users\-\Documents\Visual Studio 2012\Projects\KGG_3\KGG_3\obj\Debug\App.g.cs
+C:\Users\-\Documents\Visual Studio 2012\Projects\KGG_3\KGG_3\obj\Debug\KGG_3_MarkupCompile.cache
+C:\Users\-\Documents\Visual Studio 2012\Projects\KGG_3\KGG_3\obj\Debug\KGG_3.g.resources
+C:\Users\-\Documents\Visual Studio 2012\Projects\KGG_3\KGG_3\obj\Debug\KGG_3.Properties.Resources.resources
+C:\Users\-\Documents\Visual Studio 2012\Projects\KGG_3\KGG_3\obj\Debug\KGG_3.csproj.GenerateResource.Cache
+C:\Users\-\Desktop\KGG_3\KGG_3\bin\Debug\KGG_3.exe.config
+C:\Users\-\Desktop\KGG_3\KGG_3\obj\Debug\KGG_3.exe
+C:\Users\-\Desktop\KGG_3\KGG_3\obj\Debug\KGG_3.pdb
+C:\Users\-\Desktop\KGG_3\KGG_3\bin\Debug\KGG_3.exe
+C:\Users\-\Desktop\KGG_3\KGG_3\bin\Debug\KGG_3.pdb
+C:\Users\-\Desktop\KGG_3\KGG_3\obj\Debug\KGG_3.csprojResolveAssemblyReference.cache
+C:\Users\-\Desktop\KGG_3\KGG_3\obj\Debug\MainWindow.baml
+C:\Users\-\Desktop\KGG_3\KGG_3\obj\Debug\MainWindow.g.cs
+C:\Users\-\Desktop\KGG_3\KGG_3\obj\Debug\App.g.cs
+C:\Users\-\Desktop\KGG_3\KGG_3\obj\Debug\KGG_3_MarkupCompile.cache
+C:\Users\-\Desktop\KGG_3\KGG_3\obj\Debug\KGG_3.g.resources
+C:\Users\-\Desktop\KGG_3\KGG_3\obj\Debug\KGG_3.Properties.Resources.resources
+C:\Users\-\Desktop\KGG_3\KGG_3\obj\Debug\KGG_3.csproj.GenerateResource.Cache
+C:\Users\Andrew\Documents\GitHub\KGG\KGG_3\KGG_3\bin\Debug\KGG_3.exe.config
+C:\Users\Andrew\Documents\GitHub\KGG\KGG_3\KGG_3\obj\Debug\KGG_3.exe
+C:\Users\Andrew\Documents\GitHub\KGG\KGG_3\KGG_3\obj\Debug\KGG_3.pdb

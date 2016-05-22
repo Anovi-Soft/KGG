@@ -1,0 +1,13 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KGG_Task_3"
+        xmlns:KGG="clr-namespace:KGG;assembly=KGG_Helper" x:Class="KGG_Task_3.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="656" Width="933" ResizeMode="NoResize">
+    <Grid>
+        <KGG:KggCanvas x:Name="kggCanvas" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="594" Width="890"/>
+    </Grid>
+</Window>
