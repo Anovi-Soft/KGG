@@ -8,42 +8,75 @@ namespace KGG
 { 
     public class Polygon
     {
-        public List<Vector2> Points {get; private set; }
-        public Polygon(List<Vector2> points)
+        public KGG.KggCanvas.Color Color;
+        public List<Vector2Ext> Points { get; private set; }
+
+        private List<Segment> _segments;
+        public List<Segment> Segments => 
+            _segments ?? 
+            (_segments = Points.Select((x, i) => new Segment(x, Points[(i + 1)%Points.Count]))
+            .ToList());
+
+        public Polygon()
         {
+            Points = new List<Vector2Ext>();
+        }
+        public Polygon(List<Vector2Ext> points, KggCanvas.Color color)
+        {
+            Color = color;
             Points = points;
         }
 
-        //public static Polygon Intersection(Polygon a, Polygon b)
-        //{
-        //    b.Points.Add(b.Points.First());
-        //    for (int i = 0; i < b.Points.Count - 1; i++)
-        //    {
-        //        a = Intersection(a, new Segment(b.Points[i], b.Points[i + 1]));
-        //        if (a.Points.Count == 0)
-        //            throw new DisjointPolygons();
-        //    }
-        //    return a;
-        //}
-        //public static Polygon Intersection(Polygon a, Segment b)
-        //{
-        //    List<Vector2> result = new List<Vector2>();
-        //    a.Points.Add(a.Points.First());
-        //    for (int i = 0; i < a.Points.Count - 1; i++)
-        //    {
-        //        Vector2 start = a.Points[i];
-        //        Vector2 end = a.Points[i + 1];
-        //        bool s = b.PlaceOfPoint(start) <= 0; //справа
-        //        bool e = b.PlaceOfPoint(end) <= 0;
-        //        if (s)
-        //            result.Add(start);
-        //        if (s ^ e)
-        //            result.Add(b.CrossingPoint(new Segment(start, end)));
-        //    }
-        //    return new Polygon(result);
-        //}
+        public Polygon CutOff(Polygon secondPolygon, KggCanvas.Color red)
+        {
+            return this;
+        }
+        public Polygon CutOffOld(Polygon polygon, KggCanvas.Color color)
+        {
+            Points.ForEach(x => x.ContainsOnAnotherPoly = polygon.Contain(x));
+            polygon.Points.ForEach(x => x.ContainsOnAnotherPoly = Contain(x));
+            var result = new Polygon {Color = color};
+            foreach (var segment in Segments)
+            {
+                Vector2Ext point = null;
+                if (!segment.From.ContainsOnAnotherPoly)
+                {
+                    result.Points.Add(segment.From);
+                    if (segment.To.ContainsOnAnotherPoly)
+                    {
+                        if (polygon.CrossPoint(segment, ref point))
+                            result.Points.Add(point);
+                    }
+                }
+                else if (!segment.To.ContainsOnAnotherPoly)
+                {
+                    result.Points.AddRange(polygon.Points.Where(x=>x.ContainsOnAnotherPoly).Reverse());
+                    if (polygon.CrossPoint(segment, ref point))
+                        result.Points.Add(point);
+                }
+            }
+            result.Points = result.Points.Distinct().ToList();
+            return result;
+        }
+
+        private bool CrossPoint(Segment segment, ref Vector2Ext vector)
+        {
+            foreach (var s in Segments)
+            {
+                if (s != null && s.TryCrossPoint(segment, out vector))
+                    return true;
+            }
+            return false;
+        }
+
+        public bool Contain(Vector2 point)
+        {
+            return Segments.All(x => x.PlaceOfPoint(point) > 0);
+        }
+
         public override string ToString() => Points.Skip(1)
             .Aggregate("["+Points.First(),
             (current, point) => current + "," + point) + "]";
+
     }
 }

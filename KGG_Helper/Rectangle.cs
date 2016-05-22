@@ -18,6 +18,12 @@ namespace KGG
             D = d;
         }
 
+        public Rectangle(Vector3 a, Vector3 b, Vector3 c, Vector3 d, KggCanvas.Color color)
+            : this(a, b, c, d)
+        {
+            Color = color;
+        }
+
         public Vector3 A { get; }
         public Vector3 B { get; }
         public Vector3 C { get; }
@@ -28,14 +34,13 @@ namespace KGG
         /// </summary>
         /// <param name="n"></param>
         /// <returns></returns>
-        public List<Triangle> Triangulation(uint n)
+        public IEnumerable<Triangle> Triangulation(uint n)
         {
-            var triangles = new Triangle(A, B, C).Triangulation(n);
-            triangles.AddRange(new Triangle(A, B, C).Triangulation(n));
+            var triangles = new Triangle(A, B, C).Triangulation(n)
+                .Concat(new Triangle(C, D, A).Triangulation(n));
             foreach (var z in triangles)
-            {
                 z.Color = Color;
-            }
+
             return triangles;
         }
         public override string ToString() =>

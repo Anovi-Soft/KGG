@@ -31,3 +31,6 @@ C:\Users\anovi\Documents\Visual Studio 2015\Projects\KGG\KGG_Task_2\obj\Debug\Ma
 C:\Users\anovi\Documents\Visual Studio 2015\Projects\KGG\KGG_Task_2\obj\Debug\KGG_Task_2.g.resources
 C:\Users\anovi\Documents\Visual Studio 2015\Projects\KGG\KGG_Task_2\obj\Debug\KGG_Task_2.Properties.Resources.resources
 C:\Users\anovi\Documents\Visual Studio 2015\Projects\KGG\KGG_Task_2\obj\Debug\KGG_Task_2.csproj.GenerateResource.Cache
+c:\Users\anovi\Documents\Visual Studio 2015\Projects\KGG\KGG_Task_2\bin\Debug\WriteableBitmapEx.Wpf.dll
+c:\Users\anovi\Documents\Visual Studio 2015\Projects\KGG\KGG_Task_2\bin\Debug\WriteableBitmapEx.Wpf.pdb
+c:\Users\anovi\Documents\Visual Studio 2015\Projects\KGG\KGG_Task_2\bin\Debug\WriteableBitmapEx.Wpf.xml

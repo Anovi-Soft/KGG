@@ -8,23 +8,40 @@ namespace KGG
 {
     public class Pyramid
     {
-        private readonly Triangle[] _triangles = new Triangle[6];
-        public Pyramid(Vector3 a, Vector3 b, Vector3 c, Vector3 d, Vector3 top, KggCanvas.Color[] color)
+        private readonly List<Triangle> _triangles;
+        public Pyramid(Vector3 a, Vector3 b, Vector3 c, Vector3 d, Vector3 e, KggCanvas.Color[] color)
         {
-            _triangles[0] = new Triangle(a, b, c) { Color = color[0] };
-            _triangles[1] = new Triangle(c, d, a) { Color = color[0] };
-            _triangles[2] = new Triangle(a, top, b) { Color = color[1] };
-            _triangles[3] = new Triangle(b, top, c) { Color = color[2] };
-            _triangles[4] = new Triangle(c, top, b) { Color = color[3] };
-            _triangles[5] = new Triangle(d, top, a) { Color = color[4] };
+            var ad = MiddlePoint(a, d);
+            var ab = MiddlePoint(a, b);
+            var bc = MiddlePoint(b, c);
+            var cd = MiddlePoint(c, d);
+            var centre = MiddlePoint(a, c);
+
+            _triangles = new List<Triangle>
+            {
+                new Triangle(d, ad, e, color[0]),
+                new Triangle(a, ad, e, color[0]),
+                new Triangle(a, ab, e, color[1]),
+                new Triangle(b, ab, e, color[1]),
+                new Triangle(b, bc, e, color[2]),
+                new Triangle(c, bc, e, color[2]),
+                new Triangle(c, cd, e, color[3]),
+                new Triangle(d, cd, e, color[3]),
+                new Triangle(b, centre, a, color[4]),
+                new Triangle(d, centre, a, color[4]),
+                new Triangle(b, centre, c, color[4]),
+                new Triangle(d, centre, c, color[4])
+            };
         }
-        
+
+        private Vector3 MiddlePoint(Vector3 a, Vector3 b) => a + (b - a)/2;
+
         /// <summary>
         /// Split Pyramid to 6*2^(n+1) _triangles
         /// </summary>
         /// <param name="n"></param>
         /// <returns></returns>
-        public List<Triangle> Triangulation(uint n)
+        public IEnumerable<Triangle> Triangulation(uint n)
         {
             var tri = new List<Triangle>(12);
             foreach (var triangle in _triangles)

@@ -46,7 +46,7 @@ namespace KGG
         }
 
         public void DrawPoint(Vector2 point, Color color) =>
-            DrawPoint((int)point.X, (int)point.Y, color);
+            DrawPoint((int) Math.Round(point.X), (int)Math.Round(point.Y), color);
 
         public void DrawPoint(int x, int y, Color color) =>
             DrawPoint(x, y, (byte[])color);
@@ -58,7 +58,7 @@ namespace KGG
             bitmap.DrawLine(x1, y1, x2, y2, color);
 
         public void DrawLine(Vector2 from, Vector2 to, Color color) =>
-            DrawLine((int) @from.X, (int) @from.Y, (int) to.X, (int) to.Y, color);
+            DrawLine((int)Math.Round(@from.X), (int)Math.Round(@from.Y), (int)Math.Round(to.X), (int)Math.Round(to.Y), color);
 
         public void DrawLine(Segment segment, Color color) =>
             DrawLine(segment.From, segment.To, color);
@@ -82,6 +82,17 @@ namespace KGG
                 y3 + halfHeight,
                 triangle.Color);
         }
+
+        public void DrawPolygon(Polygon polygon) =>
+            DrawPoint(polygon.Points, polygon.Color);
+
+        private void DrawPoint(List<Vector2Ext> points, Color color)
+        {
+            bitmap.FillPolygon(
+                points.Concat(new List<Vector2Ext> {points.First()})
+                .SelectMany(x=>x.AsArray()).ToArray(), color);
+        }
+        
 
         public void Update()
         {
@@ -122,9 +133,14 @@ namespace KGG
             public static Color Black = new Color( 0, 0, 0);
             public static Color White = new Color( 255, 255, 255);
             public static Color Gray = new Color(128, 128, 128);
-            public static Color Blue = new Color( 255, 0, 0);
-            public static Color Green = new Color( 0, 255, 0);
+
+            public static Color Blue = new Color(255, 0, 0);
+            public static Color Green = new Color(0, 255, 0);
             public static Color Red = new Color(0, 0, 255);
+
+            public static Color Yelow = new Color(0, 255, 255);
+            public static Color Pink = new Color(255, 0, 255);
+            public static Color Aqua = new Color(255, 255, 0);
         }
 
         private void UserControl_SizeChanged(object sender, SizeChangedEventArgs e)

@@ -17,3 +17,6 @@ C:\Users\anovi\Documents\Visual Studio 2015\Projects\KGG\KGG_Helper\obj\Release\
 C:\Users\anovi\Documents\Visual Studio 2015\Projects\KGG\KGG_Helper\obj\Release\KGG_Helper.g.resources
 C:\Users\anovi\Documents\Visual Studio 2015\Projects\KGG\KGG_Helper\obj\Release\KGG_Helper.dll
 C:\Users\anovi\Documents\Visual Studio 2015\Projects\KGG\KGG_Helper\obj\Release\KGG_Helper.pdb
+C:\Users\anovi\Documents\Visual Studio 2015\Projects\KGG\KGG_Helper\bin\Release\WriteableBitmapEx.Wpf.dll
+C:\Users\anovi\Documents\Visual Studio 2015\Projects\KGG\KGG_Helper\bin\Release\WriteableBitmapEx.Wpf.pdb
+C:\Users\anovi\Documents\Visual Studio 2015\Projects\KGG\KGG_Helper\bin\Release\WriteableBitmapEx.Wpf.xml

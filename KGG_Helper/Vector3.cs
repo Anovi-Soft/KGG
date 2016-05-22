@@ -26,6 +26,18 @@ namespace KGG
         public double YY => X / (2 * Math.Sqrt(2)) - Z;
         public double ZZ => X;
 
+        public static Vector3 operator -(Vector3 a, Vector3 b) =>
+            new Vector3(a.X - b.X, a.Y - b.Y, a.Z - b.Z);
+        public static Vector3 operator +(Vector3 a, Vector3 b) =>
+            new Vector3(a.X + b.X, a.Y + b.Y, a.Z + b.Z);
+        public static Vector3 operator /(Vector3 a, double b) =>
+            new Vector3(a.X / b, a.Y / b, a.Z / b);
+        public static Vector3 operator *(Vector3 a, double b) =>
+            new Vector3(a.X * b, a.Y * b, a.Z * b);
+
+        public double Length =>
+            Math.Sqrt(Math.Pow(X, 2) + Math.Pow(Y, 2) + Math.Pow(Z, 2));
+
         public override string ToString() => $"({X};{Y};{Z})";
 
         public static bool TryParse(string text, out Vector3 result)
@@ -51,5 +63,6 @@ namespace KGG
                 return new Vector3(splt[0], splt[1], splt[2]);
             throw new FormatException();
         }
+        
     }
 }
