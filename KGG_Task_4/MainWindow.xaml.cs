@@ -29,15 +29,14 @@ namespace KGG_Task_4
 
         public void UpdateWindow()
         {
-
             var mx = (int)kggCanvas.Width - 50;
             var my = (int)kggCanvas.Height - 50;
             double x, y, z,
                 xx, yy,
                 maxx, maxy, minx, miny,
-                size = 3.5,
+                size = 4,
                 x1 = size, x2 = -size, y1 = -size, y2 = size;// Replace a,b,c,d
-            int i, j, n = 500, m = mx * 2;
+            int i, j, n = 1200, m = mx * 2;
             int[] top = new int[mx],
                 bottom = new int[mx];
             minx = 10000; maxx = -minx;
@@ -106,10 +105,10 @@ namespace KGG_Task_4
         }
 
         //функция z=f(x,y)
-        double f(double x, double y)
-        {
-            return Math.Sin(x*x*y);
-        }
+        double f(double x, double y) =>
+            //Math.Exp(-Math.Pow((x - 4) * (x - 4) + (y - 4) * (y - 4), 2)/1000) + Math.Exp(-Math.Pow((x + 4) * (x + 4) + (y + 4) * (y + 4), 2)/1000) +
+            //         0.1*Math.Exp(-Math.Pow((x + 4) * (x + 4) + (y + 4) * (y + 4), 2)) + 0.1*Math.Exp(-Math.Pow((x - 4) * (x - 4) + (y - 4) * (y - 4), 2));
+            Math.Sin(x * x * y);
 
         // используем изометрию
         double coord_x(double x, double y, double z)

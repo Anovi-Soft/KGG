@@ -40,7 +40,7 @@ namespace KGG
             throw new NotSupportedException();
         }
         public void DrawPoint(int x, int y, byte[] color)
-        {
+        { 
             if (1 >= x || x >= MapWidth - 1 || 1 >= y || y >= MapHeight - 1) return;
             bitmap.WritePixels(new Int32Rect(x, y, 1, 1), color, 4, 0);
         }
@@ -58,7 +58,8 @@ namespace KGG
             bitmap.DrawLine(x1, y1, x2, y2, color);
 
         public void DrawLine(Vector2 from, Vector2 to, Color color) =>
-            DrawLine((int)Math.Round(@from.X), (int)Math.Round(@from.Y), (int)Math.Round(to.X), (int)Math.Round(to.Y), color);
+            DrawLine(   (int)Math.Round(@from.X), (int)Math.Round(@from.Y),
+                        (int)Math.Round(to.X), (int)Math.Round(to.Y), color);
 
         public void DrawLine(Segment segment, Color color) =>
             DrawLine(segment.From, segment.To, color);
@@ -141,6 +142,9 @@ namespace KGG
             public static Color Yelow = new Color(0, 255, 255);
             public static Color Pink = new Color(255, 0, 255);
             public static Color Aqua = new Color(255, 255, 0);
+
+            public Color Alpha(byte a)=>
+                new Color(B, G, R, a);
         }
 
         private void UserControl_SizeChanged(object sender, SizeChangedEventArgs e)

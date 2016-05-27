@@ -55,9 +55,7 @@ namespace KGG
 
         public override bool Equals(object obj)
         {
-            var other = obj as Vector2;
-            if (obj == null) return false;
-            return Equals(other);
+            return obj is Vector2 && Equals((Vector2) obj);
         }
 
         protected bool Equals(Vector2 other)

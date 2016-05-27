@@ -96,6 +96,7 @@ namespace KGG_Task_5
 
             var triangles = cube.Triangulation(triLvl)
                 .Concat(pyramid.Triangulation(triLvl)) 
+                .AsParallel()
                 .OrderBy(x=>x.ZZ)
                 .ToList();
             triangles.ForEach(kggCanvas.DrawTriangle);

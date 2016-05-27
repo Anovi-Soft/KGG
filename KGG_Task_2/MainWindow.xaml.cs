@@ -23,8 +23,9 @@ namespace KGG_Task_2
     public partial class MainWindow : Window
     {
         private readonly KggCanvas.Color _color = KggCanvas.Color.Black;
-        private readonly Vector2[] _neighborTop = { new Vector2(0, 1), new Vector2(1,1), new Vector2(1, 0) };
-        private readonly Vector2[] _neighborButtom = { new Vector2(0, -1), new Vector2(1, -1), new Vector2(1, 0) };
+        private readonly Vector2[] _neighborTop = { new Vector2(0, 1), new Vector2(1,1), new Vector2(1, 0), new Vector2(1, -1) };
+        private readonly Vector2[] _neighborButtom = { new Vector2(0, -1), new Vector2(1, -1), new Vector2(1, 0), new Vector2(1, 1) };
+        private readonly Vector2 _neighborRight = new Vector2(1, 0);
         Vector2 previousPoint;
         Vector2 currentPoint;
 
@@ -69,10 +70,15 @@ namespace KGG_Task_2
             var sign = Functions.Sign_dF_Task2_X(currentPoint.X, a, b, c, d);
             
             previousPoint = currentPoint;
-            currentPoint = (sign < 0 ? _neighborButtom : _neighborTop)
+
+            var neighbor = sign < 0
+                ? _neighborButtom
+                : _neighborTop;
+
+            currentPoint = neighbor
                 .Select(z => new Vector2(z.X + currentPoint.X, z.Y + currentPoint.Y))
                 .OrderBy(x => Math.Abs(Functions.F_Task2(x.X, a, b, c, d) - x.Y))
-                .First(x => !x.Equals(previousPoint));
+                .First(x=> !x.Equals(previousPoint));
         }
 
         private void TextChanged(object sender, TextChangedEventArgs e)

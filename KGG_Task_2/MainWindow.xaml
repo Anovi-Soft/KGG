@@ -10,9 +10,9 @@
     <Grid Margin="10">
         <KGG:KggCanvas x:Name="kggCanvas"/>
         <Label x:Name="labelA" Content="A:" HorizontalAlignment="Left" Margin="45,609,0,0" VerticalAlignment="Top" Height="42" Width="25" FontSize="18.667"/>
-        <TextBox x:Name="textBoxA" HorizontalAlignment="Left" Height="42" Margin="75,609,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="130" FontSize="26.667" TextChanged="TextChanged" LostFocus="LostFocus"/>
+        <TextBox x:Name="textBoxA" HorizontalAlignment="Left" Height="42" Margin="75,609,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="130" FontSize="26.667" TextChanged="TextChanged" LostFocus="LostFocus"/>
         <Label x:Name="labelB" Content="B:" HorizontalAlignment="Left" Margin="210,609,0,0" VerticalAlignment="Top" Height="42" Width="25" FontSize="18.667"/>
-        <TextBox x:Name="textBoxB" HorizontalAlignment="Left" Height="42" Margin="240,609,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="130" FontSize="26.667" TextChanged="TextChanged" LostFocus="LostFocus"/>
+        <TextBox x:Name="textBoxB" HorizontalAlignment="Left" Height="42" Margin="240,609,0,0" TextWrapping="Wrap" Text="0,1" VerticalAlignment="Top" Width="130" FontSize="26.667" TextChanged="TextChanged" LostFocus="LostFocus"/>
         <Label x:Name="labelC" Content="C:" HorizontalAlignment="Left" Margin="370,609,0,0" VerticalAlignment="Top" Height="42" Width="25" FontSize="18.667"/>
         <TextBox x:Name="textBoxC" HorizontalAlignment="Left" Height="42" Margin="400,609,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="130" FontSize="26.667" TextChanged="TextChanged" LostFocus="LostFocus"/>
         <Label x:Name="labelD" Content="D:" HorizontalAlignment="Left" Margin="535,609,0,0" VerticalAlignment="Top" Height="42" Width="25" FontSize="18.667"/>

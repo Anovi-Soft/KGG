@@ -15,35 +15,38 @@ namespace KGG_Task_1
         private double previousLeft = 0;
         private double previousRight = 10;
         private Func<double, double> previousFunc = Math.Sin;
-        public MainWindow()
+        public MainWindow() 
         {
             InitializeComponent();
             UpdateCanvas();
         }
-
-        public void UpdateCanvas(double left, double right, Func<double, double> func)
-        {
-            UpdateCanvas(left, right);
-        }
+        
         public void UpdateCanvas(double left, double right)
         {
             previousLeft = Math.Min(left, right);
             previousRight = Math.Max(left, right);
             UpdateCanvas();
         }
+
         public void UpdateCanvas()
         {
             var width = (int) kggCanvas.Width;
             var height = (int) kggCanvas.Height - 20;
             var step = (previousRight - previousLeft) / width;
             var points = Enumerable.Range(0, width)
+                .AsParallel()
+                .AsOrdered()
                 .Select(x=>previousLeft + x * step)
-                .Select(x => new Vector2(x, previousFunc(x)));
+                .Select(x => new Vector2(x, previousFunc(x)))
+                .ToList();
 
             var maxY = points.Max(p => p.Y);
             var minY = points.Min(p => p.Y);
             var realHeight = maxY - minY;
-            var drawPoints = points.Select(p => new Vector2((p.X - previousLeft)/step,  height * (maxY - p.Y) / realHeight));
+            var drawPoints = points
+                .AsParallel()
+                .Select(p => new Vector2((p.X - previousLeft)/step,  height * (maxY - p.Y) / realHeight))
+                .ToList();
 
 
             kggCanvas.Clear();
@@ -86,8 +89,7 @@ namespace KGG_Task_1
             }
             kggCanvas.Update();
         }
-
-
+        
         double? previousShiftX;
         private void kggCanvas_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {

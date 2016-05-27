@@ -27,14 +27,30 @@ namespace KGG
             Points = points;
         }
 
-        public Polygon CutOff(Polygon secondPolygon, KggCanvas.Color red)
+        public Polygon CutOff(Polygon polygon, KggCanvas.Color color)
         {
-            return this;
+            return CutOffOld(polygon, color);
         }
         public Polygon CutOffOld(Polygon polygon, KggCanvas.Color color)
         {
-            Points.ForEach(x => x.ContainsOnAnotherPoly = polygon.Contain(x));
-            polygon.Points.ForEach(x => x.ContainsOnAnotherPoly = Contain(x));
+            Points = Points
+                .AsParallel()
+                .AsOrdered()
+                .Select(x =>
+            {
+                x.ContainsOnAnotherPoly = polygon.Contain(x);
+                return x;
+            })
+            .ToList();
+            polygon.Points = polygon.Points
+                .AsParallel()
+                .AsOrdered()
+                .Select(x =>
+                {
+                    x.ContainsOnAnotherPoly = Contain(x);
+                    return x;
+                })
+            .ToList();
             var result = new Polygon {Color = color};
             foreach (var segment in Segments)
             {

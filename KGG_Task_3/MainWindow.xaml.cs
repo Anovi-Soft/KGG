@@ -33,7 +33,7 @@ namespace KGG_Task_3
             var secondPolygon = GetPolygon(GetSecondPoints(), KggCanvas.Color.Aqua);
             var result = firstPolygon.CutOff(secondPolygon, KggCanvas.Color.Red);
             kggCanvas.Clear();
-            kggCanvas.DrawPolygon(firstPolygon);
+            //kggCanvas.DrawPolygon(firstPolygon);
             //kggCanvas.DrawPolygon(secondPolygon);
             kggCanvas.DrawPolygon(result);
             kggCanvas.Update();

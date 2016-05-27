@@ -17,7 +17,9 @@ namespace KGG
         public static int Sign_dF_Task2_X(double x, double a, double b, double c, double d)
         {
             var result = a*b*Math.Cos(b*x + c);
-            return Math.Sign(result);
+            return  Math.Abs(result) < 0.0001 
+                    ? 0 
+                    : Math.Sign(result);
         }
 
     }

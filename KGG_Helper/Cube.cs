@@ -36,10 +36,13 @@ namespace KGG
         /// <returns></returns>
         public IEnumerable<Triangle> Triangulation(uint n)
         {
-            var tri = new List<Triangle>((int) (12 * Math.Pow(2, n)));
-            foreach (var a in _rectangles)
-                tri.AddRange(a.Triangulation(n));
-            return tri;
+            return _rectangles
+                .AsParallel()
+                .SelectMany(x => x.Triangulation(n));
+            //var tri = new List<Triangle>((int) (12 * Math.Pow(2, n)));
+            //foreach (var a in _rectangles)
+            //    tri.AddRange(a.Triangulation(n));
+            //return tri;
         }
     }
 }
