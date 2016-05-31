@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using KGG_Helper;
 
 namespace KGG
 {
@@ -63,6 +64,5 @@ namespace KGG
                 return new Vector3(splt[0], splt[1], splt[2]);
             throw new FormatException();
         }
-        
-    }
+        }
 }

@@ -22,7 +22,7 @@ namespace KGG
         {
             s = s.Trim().Replace('.', ',');
             double result;
-            return double.TryParse(s, out result);
+            return double.TryParse(s, out result) || s=="-" || s=="+";
         }
 
         public static bool ParserInt(string s)
@@ -32,5 +32,8 @@ namespace KGG
             int result;
             return int.TryParse(s, out result);
         }
+
+        public static double ReadDouble(this TextBox textBox) =>
+            double.Parse(textBox.Text.Replace('.', ','));
     }
 }

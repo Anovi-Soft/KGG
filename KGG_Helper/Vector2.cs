@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using KGG_Helper;
 
 namespace KGG
 {
@@ -45,6 +46,9 @@ namespace KGG
 
         public int[] AsArray() => new[] {(int) X, (int) Y};
 
+        public Vector2 AsIntVector() =>
+            new Vector2((int)X, (int)Y);
+
         public static Vector2 Parse(string text)
         {
             var splt = text.Split(';').Select((a) => a == "" ? 0 : double.Parse(a));
@@ -70,5 +74,12 @@ namespace KGG
                 return (X.GetHashCode()*397) ^ Y.GetHashCode();
             }
         }
+
+        public static implicit operator PolarPoint(Vector2 vector) =>
+            new PolarPoint
+            {
+                R = Math.Sqrt(vector.X * vector.X + vector.Y * vector.Y),
+                Fi = Math.Atan(vector.Y / vector.X)
+            };
     }
 }
