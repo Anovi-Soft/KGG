@@ -20,7 +20,7 @@ namespace KGG_Task_3
     /// </summary>
     public partial class MainWindow : Window
     {
-        private int size = 20;
+        private int size = 50;
         public MainWindow()
         {
             InitializeComponent();
@@ -29,7 +29,7 @@ namespace KGG_Task_3
         public void UpdateCanvas()
         {
             var firstPolygon = GetPolygon(GetFirstPoints(), KggCanvas.Color.Green);
-            var secondPolygon = GetPolygon(GetSecondPoints(), KggCanvas.Color.Aqua);
+            var secondPolygon = GetPolygon(GetSecondPoints(), KggCanvas.Color.Blue);
             var result = firstPolygon.Cut(secondPolygon);
 
             kggCanvas.Clear();
@@ -38,6 +38,7 @@ namespace KGG_Task_3
                 poly.Color = KggCanvas.Color.Red;
                 kggCanvas.DrawPolygon(poly, size);
             }
+            //kggCanvas.DrawPolygon(firstPolygon & secondPolygon, size);
             kggCanvas.DrawPolygonLines(firstPolygon,size);
             kggCanvas.DrawPolygonLines(secondPolygon, size);
             kggCanvas.Update();
@@ -45,23 +46,21 @@ namespace KGG_Task_3
 
         private Polygon GetPolygon(List<Vector2> points, KggCanvas.Color color = null)
         {
-            return new Polygon(points.ToList()
-                ,color);
+            return new Polygon(points.ToList(),color);
         }
 
         private List<Vector2> GetFirstPoints() => new List<Vector2>()
         {
-            new Vector2(0,0),
-            new Vector2(3,2),
+            new Vector2(-6,0),
+            new Vector2(0,3),
             new Vector2(6,0),
-            new Vector2(3,-2)
+            new Vector2(0,-3)
         };
         private List<Vector2> GetSecondPoints() => new List<Vector2>
         {
-            new Vector2(4, 3),
-            new Vector2(7, 3),
-            new Vector2(7, -3),
-            new Vector2(4, -3)
+            new Vector2(1,4),
+            new Vector2(6,0),
+            new Vector2(0,-3)
         };
 
         private void Window_Initialized(object sender, EventArgs e)

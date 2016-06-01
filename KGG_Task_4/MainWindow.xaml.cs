@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xaml;
 using KGG;
 using KGG_Helper;
 
@@ -25,7 +27,7 @@ namespace KGG_Task_4
         public MainWindow()
         {
             InitializeComponent();
-            UpdateWindowNew();
+            UpdateWindow();
         }
 
         private void UpdateWindowNew()
@@ -36,7 +38,7 @@ namespace KGG_Task_4
             var max = new Vector2(4,4);
             var linesCount = height * 2;
             var stepsCount = width * 2;
-            Func<double, double, double> func = (x, y) => Math.Sin(x * y);
+            Func<double, double, double> func = (x, y) => -15 + Math.Sqrt(x*x+y*y);
 
             var points = GetPoints(linesCount, stepsCount, min, max, func)
                 .ToList();
@@ -57,10 +59,8 @@ namespace KGG_Task_4
             var maxY = tasks[2].Result;
             var minY = tasks[3].Result;
 
-            var tops = Enumerable.Repeat(height, width+1)
-                .ToList();
-            var bottoms = Enumerable.Repeat(0, width+1)
-                .ToList();
+            var tops = Enumerable.Repeat(int.MaxValue, width+1).ToList();
+            var bottoms = Enumerable.Repeat(int.MinValue, width+1).ToList();
 
             points.Select(x => new Vector2
             {
@@ -113,6 +113,7 @@ namespace KGG_Task_4
 
         public static double Format(double min, double max, int i, double n) =>
             min + i*(max - min)/n;
+
         public void UpdateWindow()
         {
             var mx = (int)kggCanvas.Width - 50;
@@ -122,7 +123,7 @@ namespace KGG_Task_4
                 maxx, maxy, minx, miny,
                 size = 4,
                 x1 = size, x2 = -size, y1 = -size, y2 = size;
-            int i, j, n = 30, m = mx * 10;
+            int i, j, n = 600, m = mx * 10;
             int[] top = new int[mx+1],
                 bottom = new int[mx+1];
             minx = 10000; maxx = -minx;
@@ -190,7 +191,8 @@ namespace KGG_Task_4
 
         //функция z=f(x,y)
         double f(double x, double y) =>
-            Math.Sin(x * x * y);
+             -15 + Math.Sqrt(x * x + y * y);
+        //Math.Sin(x * x * y);
 
         // используем изометрию
         double coord_x(double x, double y, double z) => (y - x) * Math.Sqrt(3.0) / 2;

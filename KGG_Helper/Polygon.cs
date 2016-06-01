@@ -28,13 +28,12 @@ namespace KGG
         public IEnumerable<Polygon> Cut(Polygon other)
         {
             var oth = this & other;
-            var tmpPoints = AddCommon(Points, oth).ToList();
-            var points = tmpPoints.Where(x =>
+            if (oth.Points.Count < 3)
             {
-                var tmp = tmpPoints.Where(y => y.Point.Equals(x.Point));
-                var mark = tmp.First().Marked;
-                return !mark || tmp.All(y => y.Marked);
-            }).ToList();
+                yield return this;
+                yield break;
+            }
+            var points = AddCommon(Points, oth).Distinct().ToList();
             var otherPoints = oth.Points.Select(x => new
                 Vector2Mark
                 {
@@ -46,7 +45,6 @@ namespace KGG
             var concurentPoints = otherPoints;
             while (points.Any(x=>x.Marked))
             {
-                //if (points.Count(x=>other.Contain(x.Point)))
                 var result = new List<Vector2>();
                 var i = points.IndexFirst(x => x.Marked);
                 var start = currentPoints[i];
@@ -68,7 +66,9 @@ namespace KGG
                     //TODO find issue with one point in polygon
 
                 } while (currentPoints[i].Point != start.Point);
-                yield return new Polygon(result.Distinct().ToList(), Color);
+                result = result.NeighborsDistinct().ToList();
+                if (result.Count>2)
+                    yield return new Polygon(result, Color);
                 currentPoints = points;
                 concurentPoints = otherPoints;
             }
@@ -81,7 +81,7 @@ namespace KGG
                 yield return new Vector2Mark
                 {
                     Point = points[i],
-                    Marked = !other.Contain(points[i])
+                    Marked = !other.ContainExt(points[i])
                 };
                 var segment = new Segment(points[i], points[(i+1)%points.Count]);
                 var toAdd = other.Points.Where(x => segment.Contains(x)).ToList();
@@ -94,6 +94,12 @@ namespace KGG
             }
         }
 
+        private bool ContainExt(Vector2 vector2)
+        {
+            return Contain(vector2) ||
+                Points.Any(vector2.Equals);
+        }
+
         public static Polygon operator & (Polygon a, Polygon b)
         {
             b = new Polygon(b.Points.ToList(), b.Color);
@@ -104,6 +110,7 @@ namespace KGG
                 if (a.Points.Count == 0)
                     return a;
             }
+            a.Points = a.Points.Distinct().ToList();
             return a;
         }
         public static Polygon Intersection(Polygon a, Segment b)
@@ -140,5 +147,18 @@ namespace KGG
     {
         public Vector2 Point { get; set; }
         public bool Marked { get; set; }
+        public override bool Equals(object obj) => 
+            obj is Vector2Mark && Equals((Vector2Mark)obj);
+
+        protected bool Equals(Vector2Mark other) => 
+            Equals(Point, other.Point) && Marked == other.Marked;
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                return ((Point?.GetHashCode() ?? 0)*397) ^ Marked.GetHashCode();
+            }
+        }
     }
 }
