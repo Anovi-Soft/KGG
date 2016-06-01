@@ -25,7 +25,7 @@ namespace KGG_Task_4
         public MainWindow()
         {
             InitializeComponent();
-            UpdateWindow();
+            UpdateWindowNew();
         }
 
         private void UpdateWindowNew()
@@ -34,23 +34,76 @@ namespace KGG_Task_4
             var height = (int)kggCanvas.Height - 50;
             var min = new Vector2(-4,-4);
             var max = new Vector2(4,4);
-            var linesCount = 120;
-            var stepsCount = width*2;
-            Func<double, double, double> func = (x, y) => Math.Sin(x * x * y);
+            var linesCount = height * 2;
+            var stepsCount = width * 2;
+            Func<double, double, double> func = (x, y) => Math.Sin(x * y);
+
             var points = GetPoints(linesCount, stepsCount, min, max, func)
                 .ToList();
-            var maxX = points.Max(x => x.XX);
-            var minX = points.Min(x => x.XX);
-            var maxY = points.Max(x => x.YY);
-            var minY = points.Min(x => x.YY);
 
+            var tasks = new Func<double>[]
+            {
+                ()=>points.Max(x => x.XX),
+                ()=>points.Min(x => x.XX),
+                ()=>points.Max(x => x.YY),
+                ()=>points.Min(x => x.YY)
+            }
+            .Select(Task.Run)
+            .ToArray();
+
+            Task.WaitAll(tasks);
+            var maxX = tasks[0].Result;
+            var minX = tasks[1].Result;
+            var maxY = tasks[2].Result;
+            var minY = tasks[3].Result;
+
+            var tops = Enumerable.Repeat(height, width+1)
+                .ToList();
+            var bottoms = Enumerable.Repeat(0, width+1)
+                .ToList();
+
+            points.Select(x => new Vector2
+            {
+                X = (x.XX - minX) / (maxX - minX) * width,
+                Y = (x.YY - minY) / (maxY - minY) * height
+            })
+            .Select(x =>
+            {
+                var xx = (int) x.X;
+                var yy = (int) x.Y;
+                var isNotBottom = yy > bottoms[xx];
+                var isNotTop = yy < tops[xx];
+                if (isNotBottom) bottoms[xx] = yy;
+                if (isNotTop) tops[xx] = yy;
+                return isNotBottom || isNotTop ? new
+                    {
+                        Point = x,
+                        Color = isNotBottom 
+                            ? KggCanvas.Color.Pink 
+                            : KggCanvas.Color.Blue
+                    }
+                    : null;
+            })
+            .Where(x=> x!= null)
+            .ToList()
+            .ForEach(x=> kggCanvas.DrawPoint(x.Point,x.Color));
+            kggCanvas.Update();
         }
 
-        public static IEnumerable<Vector3I> GetPoints(int linesCount, int stepsCount,
+        /// <summary>
+        /// Get points in 2d plane
+        /// </summary>
+        /// <param name="countX">Count of points on mono Y line</param>
+        /// <param name="countY">Count of points on mono X line</param>
+        /// <param name="min">Start point</param>
+        /// <param name="max">End point</param>
+        /// <param name="func">Function of 2d plane</param>
+        /// <returns></returns>
+        public static IEnumerable<Vector3I> GetPoints(int countX, int countY,
             Vector2 min, Vector2 max,
             Func<double, double, double> func) =>
-                RangeFormat(linesCount, min, max)
-                .SelectMany(x => RangeFormat(stepsCount, min, max)
+                RangeFormat(countX, min, max)
+                .SelectMany(x => RangeFormat(countY, min, max)
                     .Select(y => new Vector3I(x,y,func(x,y))));
         
 

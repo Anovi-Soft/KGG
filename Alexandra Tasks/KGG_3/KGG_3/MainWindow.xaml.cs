@@ -40,16 +40,22 @@ namespace KGG_3
         }
         private void Window_Activated_1(object sender, EventArgs e)
         {
-            var pol1 = new MyPolygon(new List<Vector>() {
-                new Vector(0,3),
-                new Vector(3,6),
-                new Vector(6,3),
-                new Vector(3,0)});
-
-            var pol2 = new MyPolygon(new List<Vector>() {
-                new Vector(4,0),
-                new Vector(15, 5),
-                new Vector(15,1)});
+            var pol1 = new MyPolygon(
+                new List<Vector>()
+                {
+                    new Vector(0,0),
+                    new Vector(3,2),
+                    new Vector(6,0),
+                    new Vector(3,-2)
+                });
+            var pol2 = new MyPolygon(
+                new List<Vector>()
+                {
+                    new Vector(4, 3),
+                    new Vector(5, 3),
+                    new Vector(5, -3),
+                    new Vector(4, -3)
+                });
 
             DrawPolygon(pol1, Colors.LightSalmon);
             DrawPolygon(pol2, Colors.HotPink);

@@ -59,59 +59,59 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:element name="root" msdata:IsDataSet="true">
+  <xsd:schemsegA id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchemsegA" xmlns:msdsegAtsegA="urn:schemsegAs-microsoft-com:xml-msdsegAtsegA">
+    <xsd:element nsegAme="root" msdsegAtsegA:IsDsegAtsegASet="true">
       <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
+        <xsd:choice msegAxOccurs="unbounded">
+          <xsd:element nsegAme="metsegAdsegAtsegA">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                <xsd:element nsegAme="vsegAlue" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:segAttribute nsegAme="nsegAme" type="xsd:string" />
+              <xsd:segAttribute nsegAme="type" type="xsd:string" />
+              <xsd:segAttribute nsegAme="mimetype" type="xsd:string" />
             </xsd:complexType>
           </xsd:element>
-          <xsd:element name="assembly">
+          <xsd:element nsegAme="segAssembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:segAttribute nsegAme="segAlisegAs" type="xsd:string" />
+              <xsd:segAttribute nsegAme="nsegAme" type="xsd:string" />
             </xsd:complexType>
           </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
+          <xsd:element nsegAme="dsegAtsegA">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element nsegAme="vsegAlue" type="xsd:string" minOccurs="0" msdsegAtsegA:OrdinsegAl="1" />
+                <xsd:element nsegAme="comment" type="xsd:string" minOccurs="0" msdsegAtsegA:OrdinsegAl="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:segAttribute nsegAme="nsegAme" type="xsd:string" msdsegAtsegA:OrdinsegAl="1" />
+              <xsd:segAttribute nsegAme="type" type="xsd:string" msdsegAtsegA:OrdinsegAl="3" />
+              <xsd:segAttribute nsegAme="mimetype" type="xsd:string" msdsegAtsegA:OrdinsegAl="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element nsegAme="reshesegAder">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element nsegAme="vsegAlue" type="xsd:string" minOccurs="0" msdsegAtsegA:OrdinsegAl="1" />
+              </xsd:sequence>
+              <xsd:segAttribute nsegAme="nsegAme" type="xsd:string" use="required" />
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
       </xsd:complexType>
     </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
+  </xsd:schemsegA>
+  <reshesegAder nsegAme="resmimetype">
+    <vsegAlue>text/microsoft-resx</vsegAlue>
+  </reshesegAder>
+  <reshesegAder nsegAme="version">
+    <vsegAlue>2.0</vsegAlue>
+  </reshesegAder>
+  <reshesegAder nsegAme="reader">
+    <vsegAlue>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutrsegAl, PublicKeyToken=b77segA5c561934e089</vsegAlue>
+  </reshesegAder>
+  <reshesegAder nsegAme="writer">
+    <vsegAlue>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutrsegAl, PublicKeyToken=b77segA5c561934e089</vsegAlue>
+  </reshesegAder>
 </root>

@@ -24,50 +24,49 @@ namespace KGG_Task_3
         public MainWindow()
         {
             InitializeComponent();
-            UpdateCanvas();
         }
 
         public void UpdateCanvas()
         {
             var firstPolygon = GetPolygon(GetFirstPoints(), KggCanvas.Color.Green);
             var secondPolygon = GetPolygon(GetSecondPoints(), KggCanvas.Color.Aqua);
-            var result = firstPolygon.CutOff(secondPolygon, KggCanvas.Color.Red);
+            var result = firstPolygon.Cut(secondPolygon);
+
             kggCanvas.Clear();
-            //kggCanvas.DrawPolygon(firstPolygon);
-            //kggCanvas.DrawPolygon(secondPolygon);
-            kggCanvas.DrawPolygon(result);
+            foreach (var poly in result)
+            {
+                poly.Color = KggCanvas.Color.Red;
+                kggCanvas.DrawPolygon(poly, size);
+            }
+            kggCanvas.DrawPolygonLines(firstPolygon,size);
+            kggCanvas.DrawPolygonLines(secondPolygon, size);
             kggCanvas.Update();
         }
 
         private Polygon GetPolygon(List<Vector2> points, KggCanvas.Color color = null)
         {
-            return new Polygon(points
-                .Select(x => new Vector2Ext(kggCanvas.Width / 2 + x.X * size, kggCanvas.Height / 2 - x.Y * size) )
-                .ToList()
+            return new Polygon(points.ToList()
                 ,color);
         }
 
-        private List<Vector2> GetFirstPoints()
+        private List<Vector2> GetFirstPoints() => new List<Vector2>()
         {
-            return new List<Vector2>
-            {
-                new Vector2(-4, 0),
-                new Vector2(-2, 4),
-                new Vector2(2, 4),
-                new Vector2(4, 0),
-                new Vector2(2, -4),
-                new Vector2(-2, -4)
-            };
-        }
-        private List<Vector2> GetSecondPoints()
+            new Vector2(0,0),
+            new Vector2(3,2),
+            new Vector2(6,0),
+            new Vector2(3,-2)
+        };
+        private List<Vector2> GetSecondPoints() => new List<Vector2>
         {
-            return new List<Vector2>
-            {
-                new Vector2(5, 5),
-                new Vector2(5, -2),
-                new Vector2(-5, -2),
-                new Vector2(-5, 5),
-            };
+            new Vector2(4, 3),
+            new Vector2(7, 3),
+            new Vector2(7, -3),
+            new Vector2(4, -3)
+        };
+
+        private void Window_Initialized(object sender, EventArgs e)
+        {
+            UpdateCanvas();
         }
     }
 }

@@ -6,22 +6,22 @@
         xmlns:local="clr-namespace:KGG_Task_5"
         xmlns:kgg="clr-namespace:KGG;assembly=KGG_Helper"
         mc:Ignorable="d"
-        Title="MainWindow" Height="792" Width="929">
+        Title="MsegAinWindow" Height="792" Width="929">
     <Grid>
         <kgg:KggCanvas x:Name="kggCanvas"/>
 
         <TextBox x:Name="triLevel" HorizontalAlignment="Left" Height="34" Margin="727,627,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="90" FontSize="24" TextChanged="TextBoxUInt"/>
-        <Label Content="TriangLevel:" HorizontalAlignment="Left" Margin="575,620,0,0" VerticalAlignment="Top" FontSize="26.667"/>
+        <Label Content="TrisegAngLevel:" HorizontalAlignment="Left" Margin="575,620,0,0" VerticalAlignment="Top" FontSize="26.667"/>
 
-        <Button x:Name="button" Content="Draw" HorizontalAlignment="Left" Margin="836,620,0,0" VerticalAlignment="Top" Width="75" Height="131" FontSize="26.667" Click="button_Click"/>
+        <Button x:Name="button" Content="DrsegAw" HorizontalAlignment="Left" Margin="836,620,0,0" VerticalAlignment="Top" Width="75" Height="131" FontSize="26.667" Click="button_Click"/>
 
-        <Label Content="Cube:" HorizontalAlignment="Left" Margin="10,620,0,0" VerticalAlignment="Top" FontSize="26.667"/>
+        <Label Content="CusegBe:" HorizontalAlignment="Left" Margin="10,620,0,0" VerticalAlignment="Top" FontSize="26.667"/>
         <TextBox x:Name="cubeFrom" HorizontalAlignment="Left" Height="34" Margin="226,627,0,0" TextWrapping="Wrap" Text="0;-150;-100" VerticalAlignment="Top" Width="145" FontSize="16" TextChanged="TextBoxVector3"/>
         <Label Content="From:" HorizontalAlignment="Left" Margin="144,620,0,0" VerticalAlignment="Top" FontSize="26.667"/>
         <TextBox x:Name="cubeTo" HorizontalAlignment="Left" Height="34" Margin="419,627,0,0" TextWrapping="Wrap" Text="200;50;100" VerticalAlignment="Top" Width="129" FontSize="16" TextChanged="TextBoxVector3"/>
         <Label Content="To:" HorizontalAlignment="Left" Margin="376,620,0,0" VerticalAlignment="Top" FontSize="26.667"/>
 
-        <Label  Content="Pyramid:" HorizontalAlignment="Left" Margin="10,676,0,0" VerticalAlignment="Top" FontSize="26.667"/>
+        <Label  Content="PyrsegAmid:" HorizontalAlignment="Left" Margin="10,676,0,0" VerticalAlignment="Top" FontSize="26.667"/>
         <TextBox x:Name="pyrA" HorizontalAlignment="Left" Height="34" Margin="182,683,0,0" TextWrapping="Wrap" Text="200;0;0" VerticalAlignment="Top" Width="90" FontSize="16"  TextChanged="TextBoxVector3"/>
         <Label Content="A:" HorizontalAlignment="Left" Margin="144,676,0,0" VerticalAlignment="Top" FontSize="26.667"/>
         <TextBox x:Name="pyrB" HorizontalAlignment="Left" Height="34" Margin="315,683,0,0" TextWrapping="Wrap" Text="0;0;0" VerticalAlignment="Top" Width="90" FontSize="16"  TextChanged="TextBoxVector3"/>

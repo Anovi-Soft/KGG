@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:KGG_Task_2"
         xmlns:KGG="clr-namespace:KGG;assembly=KGG_Helper" x:Class="KGG_Task_2.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="712" Width="928.875" ResizeMode="NoResize">
+        Title="MsegAinWindow" Height="712" Width="928.875" ResizeMode="NoResize">
     <Grid Margin="10">
         <KGG:KggCanvas x:Name="kggCanvas"/>
         <Label x:Name="labelA" Content="A:" HorizontalAlignment="Left" Margin="45,609,0,0" VerticalAlignment="Top" Height="42" Width="25" FontSize="18.667"/>
@@ -17,6 +17,6 @@
         <TextBox x:Name="textBoxC" HorizontalAlignment="Left" Height="42" Margin="400,609,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="130" FontSize="26.667" TextChanged="TextChanged" LostFocus="LostFocus"/>
         <Label x:Name="labelD" Content="D:" HorizontalAlignment="Left" Margin="535,609,0,0" VerticalAlignment="Top" Height="42" Width="25" FontSize="18.667"/>
         <TextBox x:Name="textBoxD" HorizontalAlignment="Left" Height="42" Margin="565,609,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="130" FontSize="26.667" TextChanged="TextChanged" LostFocus="LostFocus"/>
-        <Button x:Name="button" Content="Draw" HorizontalAlignment="Left" Margin="750,609,0,0" VerticalAlignment="Top" Width="85" Height="42" FontSize="29.333" Click="button_Click"/>
+        <Button x:Name="button" Content="DrsegAw" HorizontalAlignment="Left" Margin="750,609,0,0" VerticalAlignment="Top" Width="85" Height="42" FontSize="29.333" Click="button_Click"/>
     </Grid>
 </Window>

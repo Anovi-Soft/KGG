@@ -19,8 +19,8 @@ namespace KGG
             Y = y;
         }
 
-        public double X { get; }
-        public double Y { get; }
+        public double X { get; set; }
+        public double Y { get; set; }
 
         public static Vector2 operator-(Vector2 a, Vector2 b) =>
             new Vector2(a.X - b.X, a.Y - b.Y);

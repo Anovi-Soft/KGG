@@ -84,13 +84,24 @@ namespace KGG
                 triangle.Color);
         }
 
-        public void DrawPolygon(Polygon polygon) =>
-            DrawPoint(polygon.Points, polygon.Color);
+        public void DrawPolygon(Polygon polygon, int size) =>
+            DrawPoint(polygon.Points
+                .Select(x => new Vector2(Width / 2 + x.X * size, Height / 2 - x.Y * size) ).ToList(), polygon.Color);
 
-        private void DrawPoint(List<Vector2Ext> points, Color color)
+        public void DrawPolygonLines(Polygon polygon, int size)
+        {
+            polygon = new Polygon(polygon.Points
+                .Select(x => new Vector2(Width / 2 + x.X * size, Height / 2 - x.Y * size)).ToList(), polygon.Color);
+            foreach (var segment in polygon.Segments)
+            {
+                DrawLine(segment, polygon.Color);
+            }
+        }
+
+        private void DrawPoint(List<Vector2> points, Color color)
         {
             bitmap.FillPolygon(
-                points.Concat(new List<Vector2Ext> {points.First()})
+                points.Concat(new List<Vector2> {points.First()})
                 .SelectMany(x=>x.AsArray()).ToArray(), color);
         }
         
