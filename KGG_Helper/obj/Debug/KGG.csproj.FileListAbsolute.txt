@@ -31,3 +31,16 @@ C:\Users\anovi\Documents\Visual Studio 2015\Projects\KGG\KGG_Helper\obj\Debug\KG
 C:\Users\anovi\Documents\Visual Studio 2015\Projects\KGG\KGG_Helper\bin\Debug\WriteableBitmapEx.Wpf.dll
 C:\Users\anovi\Documents\Visual Studio 2015\Projects\KGG\KGG_Helper\bin\Debug\WriteableBitmapEx.Wpf.pdb
 C:\Users\anovi\Documents\Visual Studio 2015\Projects\KGG\KGG_Helper\bin\Debug\WriteableBitmapEx.Wpf.xml
+C:\repos\KGG\KGG_Helper\obj\Debug\KGG.csprojResolveAssemblyReference.cache
+C:\repos\KGG\KGG_Helper\obj\Debug\KggCanvas.g.cs
+C:\repos\KGG\KGG_Helper\obj\Debug\KGG_Helper_MarkupCompile.cache
+C:\repos\KGG\KGG_Helper\obj\Debug\KGG_Helper_MarkupCompile.lref
+C:\repos\KGG\KGG_Helper\bin\Debug\KGG_Helper.dll
+C:\repos\KGG\KGG_Helper\bin\Debug\KGG_Helper.pdb
+C:\repos\KGG\KGG_Helper\bin\Debug\WriteableBitmapEx.Wpf.dll
+C:\repos\KGG\KGG_Helper\bin\Debug\WriteableBitmapEx.Wpf.pdb
+C:\repos\KGG\KGG_Helper\bin\Debug\WriteableBitmapEx.Wpf.xml
+C:\repos\KGG\KGG_Helper\obj\Debug\KggCanvas.baml
+C:\repos\KGG\KGG_Helper\obj\Debug\KGG_Helper.g.resources
+C:\repos\KGG\KGG_Helper\obj\Debug\KGG_Helper.dll
+C:\repos\KGG\KGG_Helper\obj\Debug\KGG_Helper.pdb
