@@ -54,6 +54,7 @@
     <Compile Include="KggCanvas.xaml.cs">
       <DependentUpon>KggCanvas.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ObjectExtension.cs" />
     <Compile Include="Polygon.cs" />
     <Compile Include="Pyramid.cs" />
     <Compile Include="Rectangle.cs" />

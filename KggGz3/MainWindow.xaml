@@ -8,6 +8,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="656" Width="933" ResizeMode="NoResize">
     <Grid>
-        <KGG:KggCanvas x:Name="kggCanvas" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="594" Width="890"/>
+        <KGG:KggCanvas x:Name="kggCanvas" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="594" Width="890" Initialized="kggCanvas_Initialized"/>
     </Grid>
 </Window>
