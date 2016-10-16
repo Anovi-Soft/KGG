@@ -55,6 +55,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AngleFinder.cs" />
+    <Compile Include="FromTo.cs" />
+    <Compile Include="GraphSpliter.cs" />
+    <Compile Include="ListExtension.cs" />
+    <Compile Include="Triangle.cs" />
+    <Compile Include="MarkedEdgeTriangle.cs" />
+    <Compile Include="TriangleGraphHelper.cs" />
     <Compile Include="Triangulator.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

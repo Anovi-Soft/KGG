@@ -9,13 +9,13 @@ namespace KGG
 {
     public class Segment
     {
-        public Segment(Vector2Ext from, Vector2Ext to)
+        public Segment(Vector2 from, Vector2 to)
         {
             From = from;
             To = to;
         }
-        public Vector2Ext From { get; }
-        public Vector2Ext To { get; }
+        public Vector2 From { get; }
+        public Vector2 To { get; }
         
         /// <summary>
         /// Resize segment. Point <see cref="From"/> fixed.
@@ -28,16 +28,11 @@ namespace KGG
             return new Segment(From, new Vector2Ext(To.X / coefficient, To.Y / coefficient));
         }
 
-        private double length = -1;
-        public double Length
-        {
-            get
-            {
-                if (length == -1)
-                    length = Math.Sqrt(Math.Pow((From.X - To.X), 2) + Math.Pow((From.Y - To.Y), 2));
-                return length;
-            }
-        }
+        private double? length = null;
+        public double Length => (length ?? (length = SolveLength())).Value;
+
+        private double SolveLength() => Math.Sqrt(Math.Pow((From.X - To.X), 2) + Math.Pow((From.Y - To.Y), 2));
+
         /// <summary>
         /// If value negative, point to the right of the line.
         /// If value positive, point to the left of the line.

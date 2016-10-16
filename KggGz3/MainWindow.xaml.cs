@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows;
@@ -12,6 +13,7 @@ namespace KggGz3
     public partial class MainWindow : Window
     {
         private Vector2[] polygon;
+
         public MainWindow()
         {
             polygon = File.ReadAllLines("input.txt")
@@ -22,10 +24,19 @@ namespace KggGz3
                 .ToArray();
             InitializeComponent();
         }
+        
 
         private void kggCanvas_Initialized(object sender, EventArgs e)
         {
-            
+            var vertexes = Triangulator.Triangulate(polygon)
+                .Use(x => Triangulator.SameSquareTriangulation(x, 0.1, 1))
+                .Select(x => new MarkedEdgeTriangle(x))
+                .ToList();
+            var edges = TriangleGraphHelper.BuildEdges(vertexes).ToList();
+            FromTo cuncurent;
+            vertexes = TriangleGraphHelper.OrderByRadius(edges, vertexes, out cuncurent).ToList();
+            var graphSpliter = new GraphSpliter(vertexes, edges, cuncurent);
+            var triangles = graphSpliter.Split();
         }
     }
 }

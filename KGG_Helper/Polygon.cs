@@ -33,46 +33,47 @@ namespace KGG
         }
         public Polygon CutOffOld(Polygon polygon, KggCanvas.Color color)
         {
-            Points = Points
-                .AsParallel()
-                .AsOrdered()
-                .Select(x =>
-            {
-                x.ContainsOnAnotherPoly = polygon.Contain(x);
-                return x;
-            })
-            .ToList();
-            polygon.Points = polygon.Points
-                .AsParallel()
-                .AsOrdered()
-                .Select(x =>
-                {
-                    x.ContainsOnAnotherPoly = Contain(x);
-                    return x;
-                })
-            .ToList();
-            var result = new Polygon {Color = color};
-            foreach (var segment in Segments)
-            {
-                Vector2Ext point = null;
-                if (!segment.From.ContainsOnAnotherPoly)
-                {
-                    result.Points.Add(segment.From);
-                    if (segment.To.ContainsOnAnotherPoly)
-                    {
-                        if (polygon.CrossPoint(segment, ref point))
-                            result.Points.Add(point);
-                    }
-                }
-                else if (!segment.To.ContainsOnAnotherPoly)
-                {
-                    result.Points.AddRange(polygon.Points.Where(x=>x.ContainsOnAnotherPoly).Reverse());
-                    if (polygon.CrossPoint(segment, ref point))
-                        result.Points.Add(point);
-                }
-            }
-            result.Points = result.Points.Distinct().ToList();
-            return result;
+            throw new NotSupportedException();
+            //Points = Points
+            //    .AsParallel()
+            //    .AsOrdered()
+            //    .Select(x =>
+            //{
+            //    x.ContainsOnAnotherPoly = polygon.Contain(x);
+            //    return x;
+            //})
+            //.ToList();
+            //polygon.Points = polygon.Points
+            //    .AsParallel()
+            //    .AsOrdered()
+            //    .Select(x =>
+            //    {
+            //        x.ContainsOnAnotherPoly = Contain(x);
+            //        return x;
+            //    })
+            //.ToList();
+            //var result = new Polygon {Color = color};
+            //foreach (var segment in Segments)
+            //{
+            //    Vector2Ext point = null;
+            //    if (!segment.From.ContainsOnAnotherPoly)
+            //    {
+            //        result.Points.Add(segment.From);
+            //        if (segment.To.ContainsOnAnotherPoly)
+            //        {
+            //            if (polygon.CrossPoint(segment, ref point))
+            //                result.Points.Add(point);
+            //        }
+            //    }
+            //    else if (!segment.To.ContainsOnAnotherPoly)
+            //    {
+            //        result.Points.AddRange(polygon.Points.Where(x=>x.ContainsOnAnotherPoly).Reverse());
+            //        if (polygon.CrossPoint(segment, ref point))
+            //            result.Points.Add(point);
+            //    }
+            //}
+            //result.Points = result.Points.Distinct().ToList();
+            //return result;
         }
 
         private bool CrossPoint(Segment segment, ref Vector2Ext vector)
