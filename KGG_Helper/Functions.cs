@@ -21,6 +21,7 @@ namespace KGG
                     ? 0 
                     : Math.Sign(result);
         }
+        
 
     }
 }
