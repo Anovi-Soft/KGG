@@ -12,19 +12,32 @@ namespace KggGz3
     /// </summary>
     public partial class MainWindow : Window
     {
+        private const string InputTxt = "input.txt";
         private Vector2[] polygon;
 
         public MainWindow()
         {
-            polygon = File.ReadAllLines("input.txt")
-                .Select(x => x.Split(" \r\t".ToCharArray()))
+            polygon = GetInputLines()
+                .Select(x=>x.Replace(",", "."))
+                .Select(x => x.Split(" \r\t".ToCharArray(), StringSplitOptions.RemoveEmptyEntries))
                 .Where(x => x.Length != 2)
                 .Select(x => x.Select(double.Parse))
                 .Select(x => new Vector2(x.First(), x.Last()))
                 .ToArray();
             InitializeComponent();
         }
-        
+
+        private static string[] GetInputLines() => 
+            File.Exists(InputTxt)
+            ? File.ReadAllLines(InputTxt)
+            : new[]
+            {
+                "1 1",
+                "1 0",
+                "0 0",
+                "0 1"
+            };
+
 
         private void kggCanvas_Initialized(object sender, EventArgs e)
         {
