@@ -64,6 +64,25 @@ namespace KGG
         public void DrawLine(Segment segment, Color color) =>
             DrawLine(segment.From, segment.To, color);
 
+        public void DrawTriangle(Vector2 a, Vector2 b, Vector2 c, Color color, int coef = 1)
+        {
+            var halfWidth = MapWidth / 2;
+            var halfHeight = MapHeight / 2;
+            var x1 = (int)(a.X * coef);
+            var y1 = (int)(a.Y * coef);
+            var x2 = (int)(b.X * coef);
+            var y2 = (int)(b.Y * coef);
+            var x3 = (int)(c.X * coef);
+            var y3 = (int)(c.Y * coef);
+            bitmap.FillTriangle(
+                x1 + halfWidth,
+                y1 + halfHeight,
+                x2 + halfWidth,
+                y2 + halfHeight,
+                x3 + halfWidth,
+                y3 + halfHeight,
+                color);
+        }
         public void DrawTriangle(Triangle triangle)
         {
             var halfWidth = MapWidth / 2;

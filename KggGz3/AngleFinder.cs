@@ -26,7 +26,8 @@ namespace KggGz3
             var y2 = c.Y - b.Y;
             var d1 = Math.Sqrt(x1 * x1 + y1 * y1);
             var d2 = Math.Sqrt(x2 * x2 + y2 * y2);
-            return Math.Acos((x1 * x2 + y1 * y2) / (d1 * d2));
+            var angleRad = Math.Acos((x1 * x2 + y1 * y2) / (d1 * d2));
+            return angleRad * 180 / Math.PI;
         }
     }
 }

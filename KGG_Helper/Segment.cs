@@ -83,7 +83,26 @@ namespace KGG
         }
 
         public override string ToString() => $"[{From};{To}]";
-        
 
+        protected bool Equals(Segment other)
+        {
+            return Equals(From, other.From) && Equals(To, other.To);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((Segment) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                return ((From != null ? From.GetHashCode() : 0)*397) ^ (To != null ? To.GetHashCode() : 0);
+            }
+        }
     }
 }

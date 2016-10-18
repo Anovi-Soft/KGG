@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:KggGz3"
         xmlns:KGG="clr-namespace:KGG;assembly=KGG_Helper" x:Class="KggGz3.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="656" Width="933" ResizeMode="NoResize">
+        Title="MainWindow" Height="656" Width="933" ResizeMode="NoResize" Initialized="Window_Initialized">
     <Grid>
-        <KGG:KggCanvas x:Name="kggCanvas" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="594" Width="890" Initialized="kggCanvas_Initialized"/>
+        <KGG:KggCanvas x:Name="kggCanvas" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="594" Width="890"/>
     </Grid>
 </Window>

@@ -59,49 +59,6 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <edgessd:schema id="root" edgesmlns="" edgesmlns:edgessd="http://www.w3.org/2001/XMLSchema" edgesmlns:msdata="urn:schemas-microsoft-com:edgesml-msdata">
-    <edgessd:element name="root" msdata:IsDataSet="true">
-      <edgessd:compleedgesType>
-        <edgessd:choice maedgesOccurs="unbounded">
-          <edgessd:element name="metadata">
-            <edgessd:compleedgesType>
-              <edgessd:sequence>
-                <edgessd:element name="value" type="edgessd:string" minOccurs="0" />
-              </edgessd:sequence>
-              <edgessd:attribute name="name" type="edgessd:string" />
-              <edgessd:attribute name="type" type="edgessd:string" />
-              <edgessd:attribute name="mimetype" type="edgessd:string" />
-            </edgessd:compleedgesType>
-          </edgessd:element>
-          <edgessd:element name="assembly">
-            <edgessd:compleedgesType>
-              <edgessd:attribute name="alias" type="edgessd:string" />
-              <edgessd:attribute name="name" type="edgessd:string" />
-            </edgessd:compleedgesType>
-          </edgessd:element>
-          <edgessd:element name="data">
-            <edgessd:compleedgesType>
-              <edgessd:sequence>
-                <edgessd:element name="value" type="edgessd:string" minOccurs="0" msdata:Ordinal="1" />
-                <edgessd:element name="comment" type="edgessd:string" minOccurs="0" msdata:Ordinal="2" />
-              </edgessd:sequence>
-              <edgessd:attribute name="name" type="edgessd:string" msdata:Ordinal="1" />
-              <edgessd:attribute name="type" type="edgessd:string" msdata:Ordinal="3" />
-              <edgessd:attribute name="mimetype" type="edgessd:string" msdata:Ordinal="4" />
-            </edgessd:compleedgesType>
-          </edgessd:element>
-          <edgessd:element name="resheader">
-            <edgessd:compleedgesType>
-              <edgessd:sequence>
-                <edgessd:element name="value" type="edgessd:string" minOccurs="0" msdata:Ordinal="1" />
-              </edgessd:sequence>
-              <edgessd:attribute name="name" type="edgessd:string" use="required" />
-            </edgessd:compleedgesType>
-          </edgessd:element>
-        </edgessd:choice>
-      </edgessd:compleedgesType>
-    </edgessd:element>
-  </edgessd:schema>
   <resheader name="resmimetype">
     <value>text/microsoft-resx</value>
   </resheader>

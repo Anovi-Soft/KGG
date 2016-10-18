@@ -2,10 +2,10 @@
 {
     public class FromTo
     {
-        public MarkedEdgeTriangle From { get; }
-        public MarkedEdgeTriangle To { get; }
+        public Triangle From { get; }
+        public Triangle To { get; }
 
-        public FromTo(MarkedEdgeTriangle from, MarkedEdgeTriangle to)
+        public FromTo(Triangle from, Triangle to)
         {
             From = from;
             To = to;
@@ -30,6 +30,11 @@
             {
                 return ((From?.GetHashCode() ?? 0)*397) ^ (To?.GetHashCode() ?? 0);
             }
+        }
+
+        public override string ToString()
+        {
+            return $"{nameof(From)}: {From}, {nameof(To)}: {To}";
         }
     }
 }

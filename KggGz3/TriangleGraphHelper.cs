@@ -7,22 +7,23 @@ namespace KggGz3
 {
     internal static class TriangleGraphHelper
     {
-        public static IEnumerable<FromTo> BuildEdges(IEnumerable<MarkedEdgeTriangle> triangles)
+        public static IEnumerable<FromTo> BuildEdges(IEnumerable<Triangle> triangles)
         {
-            return triangles.SelectMany(x => BuildTrianlgeEdges(triangles, x));
+            return triangles.SelectMany(x => BuildTrianlgeEdges(triangles, x))
+                .Where(x=>x.From != null && x.To != null);
         }
 
-        private static IEnumerable<FromTo> BuildTrianlgeEdges(IEnumerable<MarkedEdgeTriangle> triangles, MarkedEdgeTriangle triangle)
+        private static IEnumerable<FromTo> BuildTrianlgeEdges(IEnumerable<Triangle> triangles, Triangle triangle)
         {
-            return triangle.Edges.Select(x => new FromTo(triangle, SingleSameEdge(triangles, x)));
+            return triangle.Edges.Select(x => new FromTo(triangle, SingleSameEdge(triangles.Where(y=>y!=triangle), x)));
         }
 
-        private static MarkedEdgeTriangle SingleSameEdge(IEnumerable<MarkedEdgeTriangle> triangles, Segment edge)
+        private static Triangle SingleSameEdge(IEnumerable<Triangle> triangles, Segment edge)
         {
-            return triangles.Single(x => x.Edges.Any(y => y.Equals(edge)));
+            return triangles.SingleOrDefault(x => x.Edges.Any(y => y.Equals(edge)));
         }
 
-        public static IEnumerable<MarkedEdgeTriangle> OrderByRadius(IEnumerable<FromTo> edges, List<MarkedEdgeTriangle> vertexes, out FromTo cuncurent)
+        public static IEnumerable<Triangle> OrderByRadius(IEnumerable<FromTo> edges, List<Triangle> vertexes, out FromTo cuncurent)
         {
             var d = edges.ToDictionary(edge => edge, edge => 1);
             foreach (var a in vertexes)
@@ -42,14 +43,22 @@ namespace KggGz3
                             d[ab] = Math.Min(left + right, d[ab]);
                     }
 
-            var e = vertexes.ToDictionary(x=>x, x => vertexes.Where(y=>x!=y).Max(y => d[Key(x, y)]));
+            var e = vertexes.ToDictionary(x=>x, x => vertexes.Max(y =>
+            {
+                int result;
+                return d.TryGetValue(Key(x, y), out result) ? result : int.MinValue;
+            }));
             var center = vertexes.OrderBy(x => e[x]).First();
 
             cuncurent = d.OrderBy(x => x.Value).Last().Key;
 
-            return vertexes.OrderBy(x => d[Key(x, center)]);
+            return vertexes.OrderByDescending(x =>
+            {
+                int result;
+                return d.TryGetValue(Key(x, center), out result) ? result : 0;
+            });
         }
 
-        private static FromTo Key(MarkedEdgeTriangle a, MarkedEdgeTriangle b) => new FromTo(a,b);
+        private static FromTo Key(Triangle a, Triangle b) => new FromTo(a,b);
     }
 }

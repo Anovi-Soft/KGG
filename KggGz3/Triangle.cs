@@ -7,9 +7,9 @@ namespace KggGz3
 {
     public class Triangle
     {
-        public Vector2 A { get; }
-        public Vector2 B { get; }
-        public Vector2 C { get; }
+        public Vector2 A { get; set; }
+        public Vector2 B { get; set; }
+        public Vector2 C { get; set; }
 
         public KggCanvas.Color Color { get; set; }
 
@@ -29,6 +29,10 @@ namespace KggGz3
             new Segment(B, C),
             new Segment(C, A)
         };
+
+        public Triangle()
+        {
+        }
 
         public Triangle(Vector2 a, Vector2 b, Vector2 c, KggCanvas.Color color = null)
         {
@@ -70,6 +74,11 @@ namespace KggGz3
                 .Concat(new Triangle(bestVariant.Item2, middle, bestVariant.Item3, Color).Triangulate(n - 1));
 
             return tri;
+        }
+
+        public override string ToString()
+        {
+            return $"{nameof(A)}: {A}, {nameof(B)}: {B}, {nameof(C)}: {C}";
         }
     }
 }

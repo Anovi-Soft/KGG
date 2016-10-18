@@ -16,3 +16,4 @@ C:\repos\KGG\KggGz3\obj\Debug\KggGz3.Properties.Resources.resources
 C:\repos\KGG\KggGz3\obj\Debug\KggGz3.csproj.GenerateResource.Cache
 C:\repos\KGG\KggGz3\obj\Debug\KggGz3.exe
 C:\repos\KGG\KggGz3\obj\Debug\KggGz3.pdb
+C:\repos\KGG\KggGz3\obj\Debug\KggGz3.csprojResolveAssemblyReference.cache
