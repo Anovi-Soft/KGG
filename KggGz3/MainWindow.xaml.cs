@@ -13,7 +13,7 @@ namespace KggGz3
     public partial class MainWindow : Window
     {
         private const string InputTxt = "input.txt";
-        private const int Coef = 100;
+        private const int Coef = 10;
         private Vector2[] polygon;
         private readonly KggCanvas.Color[] colors = {KggCanvas.Color.Green, KggCanvas.Color.Red};
 
@@ -34,14 +34,11 @@ namespace KggGz3
                 ? File.ReadAllLines(InputTxt)
                 : new[]
                 {
-                    "1 1",
-                    "1 0.5",
-                    "0.5 0.5",
-                    "0.5 1.5",
-                    "1 1.5",
-                    "1 -1",
-                    "0 -1",
-                    "0 1"
+                    "10 10",
+                    "0 0",
+                    "10 -10",
+                    "-10 -10",
+                    "-10 10"
                 };
 
 
@@ -60,19 +57,19 @@ namespace KggGz3
         private void Solve()
         {
             var vertexes = Triangulator.Triangulate(polygon)
-                .Use(x => Triangulator.SameSquareTriangulation(x, 0.3, 1))
+                .Use(x => Triangulator.SameSquareTriangulation(x, 0.3, 2))
                 .ToList();
 
             //foreach (var t in vertexes.Select(x => AddColor(x, colors.First())))
             //    kggCanvas.DrawTriangle(t.A, t.B, t.C, t.Color, Coef);
 
             var edges = TriangleGraphHelper.BuildEdges(vertexes).ToList();
-            FromTo cuncurent;
-            vertexes = TriangleGraphHelper.OrderByRadius(edges, vertexes, out cuncurent).ToList();
-            var graphSpliter = new GraphSpliter(vertexes, edges, cuncurent);
+            var temp = TriangleGraphHelper.OrderByRadius(edges, vertexes).ToList();
+            var graphSpliter = new GraphSpliter(temp[0].Value.ToList(), temp[1].Value.ToList(), edges, new FromTo(temp[0].Key, temp[1].Key));
             var trianglesGrops = graphSpliter.Split().Zip(colors, (list, color) => list.Select(x => AddColor(x, color)));
 
-            foreach (var t in trianglesGrops.SelectMany(x => x))
+            var triangles = trianglesGrops.SelectMany(x => x).ToList();
+            foreach (var t in triangles)
                 kggCanvas.DrawTriangle(t.A, t.B, t.C, t.Color, Coef);
         }
         

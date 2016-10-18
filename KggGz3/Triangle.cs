@@ -10,7 +10,7 @@ namespace KggGz3
         public Vector2 A { get; set; }
         public Vector2 B { get; set; }
         public Vector2 C { get; set; }
-
+        public bool Marked { get; set; }
         public KggCanvas.Color Color { get; set; }
 
         private double? square = null;

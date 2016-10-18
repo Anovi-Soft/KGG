@@ -23,7 +23,7 @@ namespace KggGz3
             return triangles.SingleOrDefault(x => x.Edges.Any(y => y.Equals(edge)));
         }
 
-        public static IEnumerable<Triangle> OrderByRadius(IEnumerable<FromTo> edges, List<Triangle> vertexes, out FromTo cuncurent)
+        public static KeyValuePair<Triangle, IEnumerable<Triangle>>[] OrderByRadius(IEnumerable<FromTo> edges, List<Triangle> vertexes)
         {
             var d = edges.ToDictionary(edge => edge, edge => 1);
             foreach (var a in vertexes)
@@ -50,12 +50,26 @@ namespace KggGz3
             }));
             var center = vertexes.OrderBy(x => e[x]).First();
 
-            cuncurent = d.OrderBy(x => x.Value).Last().Key;
+            var cuncurent = d.OrderBy(x => x.Value).Last().Key;
+            var from = Order(vertexes, d, center, cuncurent.From);
+            var to = Order(vertexes, d, center, cuncurent.To);
+            return new[]
+            {
+                new KeyValuePair<Triangle, IEnumerable<Triangle>>(cuncurent.From, from),
+                new KeyValuePair<Triangle, IEnumerable<Triangle>>(cuncurent.To, to),
+            };
+        }
 
+        private static IOrderedEnumerable<Triangle> Order(List<Triangle> vertexes, Dictionary<FromTo, int> d, Triangle center, Triangle triangle)
+        {
             return vertexes.OrderByDescending(x =>
             {
                 int result;
                 return d.TryGetValue(Key(x, center), out result) ? result : 0;
+            }).ThenBy(x =>
+            {
+                int result;
+                return d.TryGetValue(Key(x, triangle), out result) ? result : 10000;
             });
         }
 

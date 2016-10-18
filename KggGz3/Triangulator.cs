@@ -24,12 +24,14 @@ namespace KggGz3
 
         public static IEnumerable<Triangle> SameSquareTriangulation(IEnumerable<Triangle> sourceTriangles, double coef = 0.1, int minTriamgulation = 0)
         {
+            const int maxTri = 100;
             var unsorted = sourceTriangles.SelectMany(x => x.Triangulate(minTriamgulation)).ToList();
+            return unsorted;
             var sorted = new SortedList<double, Triangle>(new FakeKeyComparer<double>());
             foreach (var triangle in unsorted)
                 sorted.Add(triangle.Square, triangle);
 
-            while (Math.Abs(sorted.Last().Key - sorted.First().Key) > coef)
+            for(var i = 0; Math.Abs(sorted.Last().Key - sorted.First().Key) > coef && i < maxTri; i++)
             {
                 var max = sorted.Last();
                 var indexOfKey = sorted.IndexOfValue(max.Value);
