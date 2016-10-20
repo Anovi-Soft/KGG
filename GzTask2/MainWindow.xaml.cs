@@ -1,18 +1,8 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using KGG;
 
 namespace GzTask2
@@ -22,38 +12,43 @@ namespace GzTask2
     /// </summary>
     public partial class MainWindow : Window
     {
-        private static readonly KggCanvas.Color PointColor = KggCanvas.Color.Black;
-
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void Click(object sender, RoutedEventArgs e)
         {
-            double a, b, c;
             var button = (Button) sender;
             button.IsEnabled = false;
-            kggCanvas.Clear();
+            Draw();
+            button.IsEnabled = true;
+        }
+
+        private void Draw()
+        {
+            double a, b, c, d;
             try
             {
-                a = Convert.ToDouble(textBoxA.Text.Replace('.', ','));
-                b = Convert.ToDouble(textBoxB.Text.Replace('.', ','));
-                c = Convert.ToDouble(textBoxC.Text.Replace('.', ','));
+                a = TextBoxA.ReadNumber();
+                b = TextBoxB.ReadNumber();
+                c = TextBoxC.ReadNumber();
+                d = TextBoxD.ReadNumber();
             }
             catch (FormatException)
             {
-                MessageBox.Show("Text must be Double");
+                MessageBox.Show("Text must be double");
                 return;
             }
-            foreach (var point in new Solver(a,b,c).Take(10020))
+            kggCanvas.Clear();
+            var width = kggCanvas.MapWidth/2;
+            var height = kggCanvas.MapHeight/2;
+            foreach (var point in new Args(a, b, c, d).Points(-width, width))
             {
-                var x = point.X + kggCanvas.MapWidth / 2f;
-                var y = -point.Y + kggCanvas.MapHeight;
-                kggCanvas.DrawPoint((int)x, (int)y, PointColor);
+                var formatedPoint = new Vector2(width + point.X, height - point.Y);
+                kggCanvas.DrawPoint(formatedPoint, KggCanvas.Color.Black);
             }
             kggCanvas.Update();
-            button.IsEnabled = true;
         }
 
         private void TextChanged(object sender, TextChangedEventArgs e)
@@ -67,66 +62,5 @@ namespace GzTask2
             if (textBox != null && !textBox.Text.Trim().Any())
                 textBox.Text = "0";
         }
-    }
-
-    public class Solver : IEnumerable<Vector2>
-    {
-        private static readonly double D = Math.Sqrt(2) / 2;
-        private readonly double a;
-        private readonly double b;
-        private readonly double c;
-        private double x = 0.1;
-        private double y = 0.1;
-
-        public Solver(double a, double b, double c)
-        {
-            this.a = a;
-            this.b = b;
-            this.c = c;
-        }
-
-        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
-
-        public IEnumerator<Vector2> GetEnumerator()
-        {
-            while (true)
-            {
-                yield return CurrentReal();
-                Shift();
-            }
-        }
-
-        private void Shift()
-        {
-            var sd = (y - 1)*(y - 1) - 2*P*(x - 1);
-            var sv = (y + 1)*(y + 1) - 2*P*x;
-            var sh = y*y - 2*P*(x + 1);
-            var eps = 0.0001;
-            if (DivMod(sv, sh) < eps)
-            {
-                x++;
-                if (DivMod(sd, sh) < eps)
-                    y++;
-            }
-            else
-            {
-                y++;
-                if (DivMod(sv, sd) > eps)
-                    x++;
-            }
-
-        }
-
-        private static double DivMod(double left, double right) =>
-            Math.Abs(left) - Math.Abs(right);
-
-        private double P => -(a + b)/4*c;
-
-        private Vector2 CurrentReal() => new Vector2(RealX, RealY);
-
-        private double RealX => D*(MiddleX - MiddleY);
-        private double RealY => D*(MiddleX + MiddleY);
-        private double MiddleX => x + D*(b - a)*(b - a)/(8*c*(a + b));
-        private double MiddleY => y - D*(b-a)/(4*c);
     }
 }

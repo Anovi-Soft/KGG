@@ -35,3 +35,4 @@ C:\repos\KGG\KGG_Task_3\obj\Debug\KGG_Task_3.Properties.Resources.resources
 C:\repos\KGG\KGG_Task_3\obj\Debug\KGG_Task_3.csproj.GenerateResource.Cache
 C:\repos\KGG\KGG_Task_3\obj\Debug\KGG_Task_3.exe
 C:\repos\KGG\KGG_Task_3\obj\Debug\KGG_Task_3.pdb
+C:\repos\KGG\KGG_Task_3\obj\Debug\KGG_Task_3.csprojResolveAssemblyReference.cache

@@ -8,13 +8,15 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="712" Width="928.875" ResizeMode="NoResize">
     <Grid Margin="10">
-        <KGG:KggCanvas x:Name="kggCanvas"/>
-        <Label x:Name="labelA" Content="A:" HorizontalAlignment="Left" Margin="45,609,0,0" VerticalAlignment="Top" Height="42" Width="25" FontSize="18.667"/>
-        <TextBox x:Name="textBoxA" HorizontalAlignment="Left" Height="42" Margin="75,609,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="130" FontSize="26.667" TextChanged="TextChanged" LostFocus="LostFocus"/>
-        <Label x:Name="labelB" Content="B:" HorizontalAlignment="Left" Margin="210,609,0,0" VerticalAlignment="Top" Height="42" Width="25" FontSize="18.667"/>
-        <TextBox x:Name="textBoxB" HorizontalAlignment="Left" Height="42" Margin="240,609,0,0" TextWrapping="Wrap" Text="0,1" VerticalAlignment="Top" Width="130" FontSize="26.667" TextChanged="TextChanged" LostFocus="LostFocus"/>
-        <Label x:Name="labelC" Content="C:" HorizontalAlignment="Left" Margin="370,609,0,0" VerticalAlignment="Top" Height="42" Width="25" FontSize="18.667"/>
-        <TextBox x:Name="textBoxC" HorizontalAlignment="Left" Height="42" Margin="400,609,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="130" FontSize="26.667" TextChanged="TextChanged" LostFocus="LostFocus"/>
-        <Button x:Name="button" Content="Draw" HorizontalAlignment="Left" Margin="750,609,0,0" VerticalAlignment="Top" Width="85" Height="42" FontSize="29.333" Click="button_Click"/>
+        <KGG:KggCanvas x:Name="kggCanvas" Margin="10,14,10,64"/>
+        <Label Content="A:" HorizontalAlignment="Left" Margin="45,609,0,0" VerticalAlignment="Top" Height="42" Width="25" FontSize="18.667"/>
+        <TextBox x:Name="TextBoxA" HorizontalAlignment="Left" Height="42" Margin="75,609,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="130" FontSize="26.667" TextChanged="TextChanged" LostFocus="LostFocus"/>
+        <Label Content="B:" HorizontalAlignment="Left" Margin="210,609,0,0" VerticalAlignment="Top" Height="42" Width="25" FontSize="18.667"/>
+        <TextBox x:Name="TextBoxB" HorizontalAlignment="Left" Height="42" Margin="240,609,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="130" FontSize="26.667" TextChanged="TextChanged" LostFocus="LostFocus"/>
+        <Label Content="C:" HorizontalAlignment="Left" Margin="370,609,0,0" VerticalAlignment="Top" Height="42" Width="25" FontSize="18.667"/>
+        <TextBox x:Name="TextBoxC" HorizontalAlignment="Left" Height="42" Margin="400,609,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="130" FontSize="26.667" TextChanged="TextChanged" LostFocus="LostFocus"/>
+        <Label Content="D:" HorizontalAlignment="Left" Margin="535,610,0,0" VerticalAlignment="Top" Height="42" Width="25" FontSize="18.667"/>
+        <TextBox x:Name="TextBoxD" HorizontalAlignment="Left" Height="42" Margin="565,611,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="130" FontSize="26.667" TextChanged="TextChanged" LostFocus="LostFocus"/>
+        <Button Content="Draw" HorizontalAlignment="Left" Margin="750,609,0,0" VerticalAlignment="Top" Width="85" Height="42" FontSize="29.333" Click="Click"/>
     </Grid>
 </Window>

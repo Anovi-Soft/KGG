@@ -23,6 +23,8 @@ namespace KGG
 
         public static Vector2 operator-(Vector2 a, Vector2 b) =>
             new Vector2(a.X - b.X, a.Y - b.Y);
+        public static Vector2 operator+(Vector2 a, Vector2 b) =>
+            new Vector2(a.X + b.X, a.Y + b.Y);
 
         public double Length =>
             Math.Sqrt(Math.Pow(X, 2) + Math.Pow(Y, 2));
