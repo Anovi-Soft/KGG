@@ -24,9 +24,5 @@ namespace GzTask2
         
         public static double ReadNumber(this TextBox textBox) =>
             Convert.ToDouble(textBox.Text.Replace(".", ","));
-
-        public static bool NotIn<T>(this T obj, HashSet<T> set) => !In(obj, set);
-        public static bool In<T>(this T obj, HashSet<T> set) =>
-            obj != null && set.Contains(obj);
     }
 }
